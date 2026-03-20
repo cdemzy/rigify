@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import PageMainTransition from './components/page-main-transition'
+import SmoothScrollLink from './components/smooth-scroll-link'
 
 const steps = [
 	{
@@ -71,7 +72,7 @@ export default function Home() {
 
 			<div className='relative mx-auto flex min-h-screen w-full max-w-7xl flex-col px-6 pb-20 pt-10 sm:px-10 lg:px-12'>
 				<header className='flex items-center justify-between gap-4 py-4'>
-					<div className='flex items-center gap-3'>
+					<Link href='/' className='flex items-center gap-3'>
 						<div className='flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-sm font-semibold tracking-[0.25em] text-sky-300 shadow-[0_0_30px_rgba(56,189,248,0.18)]'>
 							RG
 						</div>
@@ -81,19 +82,28 @@ export default function Home() {
 							</p>
 							<p className='text-sm text-slate-500'>PC build intelligence</p>
 						</div>
-					</div>
+					</Link>
 
 					<div className='flex items-center gap-3 sm:gap-4'>
 						<nav aria-label='Primary' className='hidden items-center gap-8 md:flex'>
-							<a className='text-sm text-slate-300 transition hover:text-white' href='#how-it-works'>
+							<SmoothScrollLink
+								href='#how-it-works'
+								className='text-sm text-slate-300 transition hover:text-white'
+							>
 								How it works
-							</a>
-							<a className='text-sm text-slate-300 transition hover:text-white' href='#features'>
+							</SmoothScrollLink>
+							<SmoothScrollLink
+								href='#features'
+								className='text-sm text-slate-300 transition hover:text-white'
+							>
 								Features
-							</a>
-							<a className='text-sm text-slate-300 transition hover:text-white' href='#trust'>
+							</SmoothScrollLink>
+							<SmoothScrollLink
+								href='#trust'
+								className='text-sm text-slate-300 transition hover:text-white'
+							>
 								Why Rigify
-							</a>
+							</SmoothScrollLink>
 						</nav>
 
 						<Link
@@ -121,18 +131,18 @@ export default function Home() {
 							</p>
 
 							<div className='mt-10 flex flex-col gap-4 sm:flex-row'>
-								<Link
+								<SmoothScrollLink
 									href='#final-cta'
 									className='inline-flex min-h-14 whitespace-nowrap items-center justify-center rounded-full bg-sky-400 px-7 text-sm font-semibold text-slate-950 transition hover:bg-sky-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300'
 								>
 									Build My Setup
-								</Link>
-								<Link
+								</SmoothScrollLink>
+								<SmoothScrollLink
 									href='#how-it-works'
 									className='inline-flex min-h-14 whitespace-nowrap items-center justify-center rounded-full border border-white/15 bg-white/5 px-7 text-sm font-semibold text-white backdrop-blur transition hover:border-white/30 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
 								>
 									See How It Works
-								</Link>
+								</SmoothScrollLink>
 							</div>
 
 							<div className='mt-12 grid gap-4 sm:grid-cols-3'>
@@ -154,7 +164,7 @@ export default function Home() {
 						<div className='relative'>
 							<div className='absolute inset-0 -z-10 rounded-4xl bg-sky-400/10 blur-3xl' />
 							<div className='rounded-4xl border border-white/10 bg-slate-950/70 p-6 shadow-[0_30px_80px_rgba(2,6,23,0.55)] backdrop-blur xl:p-7'>
-								<div className='flex items-center justify-between border-b border-white/10 pb-5'>
+								<div className='flex flex-col gap-4 border-b border-white/10 pb-5 sm:flex-row sm:items-center sm:justify-between'>
 									<div>
 										<p className='text-xs uppercase tracking-[0.28em] text-slate-500'>
 											Build preview
@@ -163,7 +173,7 @@ export default function Home() {
 											1440p performance check
 										</h2>
 									</div>
-									<span className='rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-xs font-medium text-emerald-300'>
+									<span className='inline-flex self-start whitespace-nowrap rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-2 text-xs font-medium leading-none text-emerald-300 sm:self-auto'>
 										Ready to evaluate
 									</span>
 								</div>
@@ -176,11 +186,11 @@ export default function Home() {
 										<div className='mt-4 grid gap-3 sm:grid-cols-2'>
 											<div className='rounded-2xl bg-black/20 p-3'>
 												<p className='text-xs text-slate-500'>CPU</p>
-												<p className='mt-1 font-medium text-white'>Ryzen 7 class</p>
+												<p className='mt-1 font-medium text-white'>Ryzen 7 9700X</p>
 											</div>
 											<div className='rounded-2xl bg-black/20 p-3'>
 												<p className='text-xs text-slate-500'>GPU</p>
-												<p className='mt-1 font-medium text-white'>RTX 4070 class</p>
+												<p className='mt-1 font-medium text-white'>RTX 5070</p>
 											</div>
 											<div className='rounded-2xl bg-black/20 p-3'>
 												<p className='text-xs text-slate-500'>Memory</p>
@@ -198,20 +208,20 @@ export default function Home() {
 											<p className='text-xs uppercase tracking-[0.25em] text-slate-500'>
 												Compatibility
 											</p>
-											<p className='mt-3 text-lg font-semibold text-white'>Clean match</p>
+											<p className='mt-3 text-lg font-semibold text-white'>Well balanced</p>
 											<p className='mt-2 text-sm leading-6 text-slate-300'>
-												No obvious conflicts in the selected CPU, GPU, memory, and
-												power envelope.
+												The 9700X and RTX 5070 pair cleanly for high-refresh 1440p
+												gaming without an obvious CPU-side bottleneck.
 											</p>
 										</div>
 										<div className='rounded-2xl border border-white/8 bg-white/3 p-4'>
 											<p className='text-xs uppercase tracking-[0.25em] text-slate-500'>
 												Power target
 											</p>
-											<p className='mt-3 text-lg font-semibold text-white'>750W recommended</p>
+											<p className='mt-3 text-lg font-semibold text-white'>850W recommended</p>
 											<p className='mt-2 text-sm leading-6 text-slate-300'>
-												Comfortable headroom for gaming loads, short spikes, and future
-												upgrades.
+												Enough headroom for transient spikes, sustained gaming loads,
+												and a cleaner upgrade path later on.
 											</p>
 										</div>
 									</div>
@@ -223,7 +233,7 @@ export default function Home() {
 													Estimated outcome
 												</p>
 												<p className='mt-3 text-lg font-semibold text-white'>
-													High settings with strong 1440p headroom
+													Ultra-friendly 1440p performance with strong frame-time stability
 												</p>
 											</div>
 											<p className='text-right text-sm font-medium text-sky-200'>
@@ -233,15 +243,15 @@ export default function Home() {
 										<div className='mt-5 grid gap-3 sm:grid-cols-3'>
 											<div className='rounded-2xl bg-slate-950/70 p-3'>
 												<p className='text-xs text-slate-500'>Warzone</p>
-												<p className='mt-2 text-xl font-semibold text-white'>120+</p>
+												<p className='mt-2 text-xl font-semibold text-white'>170+</p>
 											</div>
 											<div className='rounded-2xl bg-slate-950/70 p-3'>
 												<p className='text-xs text-slate-500'>Fortnite</p>
-												<p className='mt-2 text-xl font-semibold text-white'>160+</p>
+												<p className='mt-2 text-xl font-semibold text-white'>220+</p>
 											</div>
 											<div className='rounded-2xl bg-slate-950/70 p-3'>
 												<p className='text-xs text-slate-500'>Cyberpunk</p>
-												<p className='mt-2 text-xl font-semibold text-white'>85+</p>
+												<p className='mt-2 text-xl font-semibold text-white'>110+</p>
 											</div>
 										</div>
 									</div>
@@ -252,7 +262,7 @@ export default function Home() {
 
 					<section
 						id='how-it-works'
-						className='mx-auto w-full max-w-7xl px-6 py-20 sm:px-10 lg:px-12'
+						className='mx-auto w-full max-w-7xl scroll-mt-20 px-6 py-20 sm:px-10 lg:px-12'
 					>
 						<div className='max-w-2xl'>
 							<p className='text-sm font-semibold uppercase tracking-[0.3em] text-sky-300'>
@@ -287,7 +297,7 @@ export default function Home() {
 
 					<section
 						id='features'
-						className='mx-auto w-full max-w-7xl px-6 py-20 sm:px-10 lg:px-12'
+						className='mx-auto w-full max-w-7xl scroll-mt-20 px-6 py-20 sm:px-10 lg:px-12'
 					>
 						<div className='grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start'>
 							<div className='max-w-xl'>
@@ -322,7 +332,7 @@ export default function Home() {
 
 					<section
 						id='trust'
-						className='mx-auto w-full max-w-7xl px-6 py-20 sm:px-10 lg:px-12'
+						className='mx-auto w-full max-w-7xl scroll-mt-20 px-6 py-20 sm:px-10 lg:px-12'
 					>
 						<div className='rounded-4xl border border-white/10 bg-white/4 p-8 backdrop-blur sm:p-10'>
 							<div className='grid gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-center'>
@@ -356,7 +366,7 @@ export default function Home() {
 
 					<section
 						id='final-cta'
-						className='mx-auto w-full max-w-7xl px-6 pb-24 pt-10 sm:px-10 lg:px-12'
+						className='mx-auto w-full max-w-7xl scroll-mt-20 px-6 pb-24 pt-10 sm:px-10 lg:px-12'
 					>
 						<div className='rounded-4xl border border-sky-300/20 bg-linear-to-br from-sky-400/12 via-slate-950/90 to-blue-500/12 p-8 shadow-[0_24px_80px_rgba(14,165,233,0.12)] sm:p-10 lg:p-12'>
 							<div className='flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between'>
@@ -374,18 +384,18 @@ export default function Home() {
 								</div>
 
 								<div className='flex flex-col gap-4 sm:flex-row'>
-									<Link
-										href='/'
+									<SmoothScrollLink
+										href='#final-cta'
 										className='inline-flex min-h-14 whitespace-nowrap items-center justify-center rounded-full bg-sky-400 px-7 text-sm font-semibold text-slate-950 transition hover:bg-sky-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300'
 									>
 										Build My Setup
-									</Link>
-									<Link
+									</SmoothScrollLink>
+									<SmoothScrollLink
 										href='#features'
 										className='inline-flex min-h-14 whitespace-nowrap items-center justify-center rounded-full border border-white/15 bg-white/5 px-7 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
 									>
 										Explore Features
-									</Link>
+									</SmoothScrollLink>
 								</div>
 							</div>
 						</div>
