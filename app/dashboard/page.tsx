@@ -2,6 +2,7 @@ import PageMainTransition from '@/components/page-main-transition'
 import SiteHeader from '@/components/site-header'
 import SmoothScrollLink from '@/components/smooth-scroll-link'
 
+import SelectedGamesFields from './selected-games-fields'
 import StorageFields from './storage-fields'
 
 const historyItems = [
@@ -184,26 +185,7 @@ export default function Page() {
 
 									<StorageFields />
 
-									<div className='max-w-xl lg:col-span-3'>
-										<label htmlFor='games' className='block text-sm font-medium text-slate-200'>
-											Selected games
-										</label>
-										<input
-											id='games'
-											name='games'
-											type='text'
-											placeholder='Warzone, Fortnite, Cyberpunk 2077'
-											className='mt-1.5 block w-full rounded-2xl border border-white/10 bg-white/4 px-4 py-2.5 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
-										/>
-									</div>
-								</div>
-
-								<div className='rounded-3xl border border-white/10 bg-white/3 p-3.5'>
-									<p className='text-sm leading-6 text-slate-300'>
-										Your next evaluation will estimate compatibility, PSU guidance,
-										bottleneck risk, and likely FPS performance based on the build you
-										enter here.
-									</p>
+									<SelectedGamesFields />
 								</div>
 
 								<button
