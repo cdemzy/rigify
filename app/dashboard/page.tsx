@@ -1,8 +1,12 @@
+import { Suspense } from 'react'
+
 import PageMainTransition from '@/components/page-main-transition'
 import SiteHeader from '@/components/site-header'
 import SmoothScrollLink from '@/components/smooth-scroll-link'
 
 import DashboardBuildForm from './dashboard-build-form'
+import RecentBuildsSection from './recent-builds-section'
+import RecentBuildsSectionSkeleton from './recent-builds-section-skeleton'
 
 export default function Page() {
 	return (
@@ -44,25 +48,9 @@ export default function Page() {
 							<DashboardBuildForm />
 						</div>
 
-						<aside
-							id='recent-builds'
-							className='w-full rounded-4xl border border-white/10 bg-white/4 p-5 backdrop-blur scroll-mt-20 sm:p-6'
-						>
-							<div className='border-b border-white/10 pb-6'>
-								<p className='text-xs uppercase tracking-[0.28em] text-slate-500'>
-									Saved builds
-								</p>
-								<h2 className='mt-3 text-2xl font-semibold text-white'>
-									Recent build history
-								</h2>
-							</div>
-
-							<div className='mt-6 rounded-3xl border border-dashed border-white/10 bg-slate-950/40 p-5 text-center'>
-								<p className='text-sm font-medium text-slate-200'>
-									You have no recent builds for now.
-								</p>
-							</div>
-						</aside>
+						<Suspense fallback={<RecentBuildsSectionSkeleton />}>
+							<RecentBuildsSection />
+						</Suspense>
 					</section>
 				</PageMainTransition>
 			</div>
