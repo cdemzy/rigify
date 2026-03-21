@@ -1,5 +1,6 @@
 import Link from 'next/link'
 
+import DashboardAccountMenu from './dashboard-account-menu'
 import SmoothScrollLink from './smooth-scroll-link'
 
 type SiteHeaderVariant = 'marketing' | 'auth' | 'dashboard'
@@ -11,9 +12,9 @@ interface SiteHeaderProps {
 const baseActionClassName =
 	'inline-flex min-h-11 items-center justify-center rounded-full border border-white/15 bg-white/5 px-5 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
 
-function BrandMark() {
-	return (
-		<Link href='/' className='flex items-center gap-3'>
+function BrandMark({ isLink = true }: { isLink?: boolean }) {
+	const content = (
+		<>
 			<div className='flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-sm font-semibold tracking-[0.25em] text-sky-300 shadow-[0_0_30px_rgba(56,189,248,0.18)]'>
 				RG
 			</div>
@@ -23,6 +24,16 @@ function BrandMark() {
 				</p>
 				<p className='text-sm text-slate-500'>PC build intelligence</p>
 			</div>
+		</>
+	)
+
+	if (!isLink) {
+		return <div className='flex items-center gap-3'>{content}</div>
+	}
+
+	return (
+		<Link href='/' className='flex items-center gap-3'>
+			{content}
 		</Link>
 	)
 }
@@ -72,17 +83,13 @@ function HeaderAction({ variant }: SiteHeaderProps) {
 		)
 	}
 
-	return (
-		<Link href='/auth/login' className={baseActionClassName}>
-			Account
-		</Link>
-	)
+	return <DashboardAccountMenu />
 }
 
 export default function SiteHeader({ variant }: SiteHeaderProps) {
 	return (
 		<header className='flex items-center justify-between gap-4 py-4'>
-			<BrandMark />
+			<BrandMark isLink={variant !== 'dashboard'} />
 			<HeaderAction variant={variant} />
 		</header>
 	)

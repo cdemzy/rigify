@@ -52,7 +52,7 @@ export default function Page() {
 						</SmoothScrollLink>
 					</section>
 
-					<section className='grid gap-8 xl:grid-cols-[minmax(0,1.18fr)_minmax(320px,0.82fr)]'>
+					<section className='flex flex-col gap-8'>
 						<div className='rounded-4xl border border-white/10 bg-slate-950/70 p-6 shadow-[0_30px_80px_rgba(2,6,23,0.4)] backdrop-blur sm:p-8'>
 							<div className='flex flex-col gap-4 border-b border-white/10 pb-6 sm:flex-row sm:items-end sm:justify-between'>
 								<div>
