@@ -1,10 +1,8 @@
 import PageMainTransition from '@/components/page-main-transition'
 import SiteHeader from '@/components/site-header'
 import SmoothScrollLink from '@/components/smooth-scroll-link'
-import { IoSparkles } from 'react-icons/io5'
 
-import SelectedGamesFields from './selected-games-fields'
-import StorageFields from './storage-fields'
+import DashboardBuildForm from './dashboard-build-form'
 
 const historyItems = [
 	{
@@ -39,7 +37,7 @@ export default function Page() {
 				<SiteHeader variant='dashboard' />
 
 				<PageMainTransition className='flex flex-1 flex-col gap-6 py-6 sm:gap-8 sm:py-8'>
-					<section className='mx-auto flex w-full flex-col gap-4 sm:gap-6 lg:flex-row lg:items-end lg:justify-between'>
+					<section className='mx-auto flex w-full flex-col gap-4 sm:gap-6 md:flex-row md:items-end md:justify-between'>
 						<div className='max-w-3xl'>
 							<h1 className='inline-flex items-center rounded-full border border-sky-400/20 bg-sky-400/10 px-4 py-2 text-xl font-semibold uppercase tracking-[0.3em] text-sky-200'>
 								Build dashboard
@@ -48,7 +46,7 @@ export default function Page() {
 
 						<SmoothScrollLink
 							href='#recent-builds'
-							className='inline-flex min-h-10 self-start whitespace-nowrap items-center justify-center rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
+							className='inline-flex min-h-10 w-full items-center justify-center whitespace-nowrap rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white md:w-auto md:self-auto'
 						>
 							Recent Builds
 						</SmoothScrollLink>
@@ -64,132 +62,7 @@ export default function Page() {
 								</div>
 							</div>
 
-							<form className='mt-5 space-y-4'>
-								<div className='grid gap-4 md:grid-cols-3'>
-									<div className='w-full'>
-										<label htmlFor='cpu' className='block text-sm font-medium text-slate-200'>
-											CPU
-										</label>
-										<input
-											id='cpu'
-											name='cpu'
-											type='text'
-											placeholder='Ryzen 7 9700X'
-											className='mt-1.5 block w-full rounded-2xl border border-white/10 bg-white/4 px-4 py-2.5 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
-										/>
-									</div>
-
-									<div className='w-full'>
-										<label htmlFor='gpu' className='block text-sm font-medium text-slate-200'>
-											GPU
-										</label>
-										<input
-											id='gpu'
-											name='gpu'
-											type='text'
-											placeholder='RTX 5070'
-											className='mt-1.5 block w-full rounded-2xl border border-white/10 bg-white/4 px-4 py-2.5 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
-										/>
-									</div>
-
-									<div className='w-full'>
-										<label htmlFor='psu' className='block text-sm font-medium text-slate-200'>
-											PSU
-										</label>
-										<input
-											id='psu'
-											name='psu'
-											type='text'
-											placeholder='850W 80+ Gold'
-											className='mt-1.5 block w-full rounded-2xl border border-white/10 bg-white/4 px-4 py-2.5 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
-										/>
-									</div>
-
-									<fieldset className='w-full rounded-3xl border border-white/10 bg-white/3 p-3.5 md:col-span-2'>
-										<legend className='px-2 text-sm font-medium text-slate-200'>RAM</legend>
-										<div className='mt-2.5 grid gap-3 sm:grid-cols-2'>
-											<div>
-												<label
-													htmlFor='ram-capacity'
-													className='block text-sm font-medium text-slate-200'
-												>
-													Capacity
-												</label>
-												<input
-													id='ram-capacity'
-													name='ramCapacity'
-													type='text'
-													placeholder='32GB'
-													className='mt-1.5 block w-full rounded-2xl border border-white/10 bg-white/4 px-4 py-2.5 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
-												/>
-											</div>
-											<div>
-												<label
-													htmlFor='ram-generation'
-													className='block text-sm font-medium text-slate-200'
-												>
-													Generation
-												</label>
-												<input
-													id='ram-generation'
-													name='ramGeneration'
-													type='text'
-													placeholder='DDR5'
-													className='mt-1.5 block w-full rounded-2xl border border-white/10 bg-white/4 px-4 py-2.5 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
-												/>
-											</div>
-										</div>
-									</fieldset>
-
-									<fieldset className='w-full rounded-3xl border border-white/10 bg-white/3 p-3.5 md:col-span-1'>
-										<legend className='px-2 text-sm font-medium text-slate-200'>Display</legend>
-										<div className='mt-2.5 grid gap-3 sm:grid-cols-2'>
-											<div>
-												<label
-													htmlFor='monitor-resolution'
-													className='block text-sm font-medium text-slate-200'
-												>
-													Resolution
-												</label>
-												<input
-													id='monitor-resolution'
-													name='monitorResolution'
-													type='text'
-													placeholder='1440p'
-													className='mt-1.5 block w-full rounded-2xl border border-white/10 bg-white/4 px-4 py-2.5 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
-												/>
-											</div>
-											<div>
-												<label
-													htmlFor='monitor-refresh-rate'
-													className='block text-sm font-medium text-slate-200'
-												>
-													Refresh rate
-												</label>
-												<input
-													id='monitor-refresh-rate'
-													name='monitorRefreshRate'
-													type='text'
-													placeholder='165Hz'
-													className='mt-1.5 block w-full rounded-2xl border border-white/10 bg-white/4 px-4 py-2.5 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
-												/>
-											</div>
-										</div>
-									</fieldset>
-
-									<StorageFields />
-
-									<SelectedGamesFields />
-								</div>
-
-								<button
-									type='submit'
-									className='cta-glow inline-flex min-h-11 w-full items-center justify-center rounded-full border border-sky-300/40 bg-slate-950 px-6 text-sm font-semibold text-white shadow-[0_18px_60px_rgba(14,165,233,0.28)] transition hover:border-sky-200/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300 gap-2'
-								>
-									<IoSparkles className='h-3 w-3 text-white' />
-									<span>Evaluate</span>
-								</button>
-							</form>
+							<DashboardBuildForm />
 						</div>
 
 						<aside
