@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useId, useState } from 'react'
@@ -48,8 +49,15 @@ function AuthHeader() {
 	return (
 		<header className='flex items-center justify-between gap-4 py-4'>
 			<Link href='/' className='flex items-center gap-3'>
-				<div className='flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-sm font-semibold tracking-[0.25em] text-sky-300 shadow-[0_0_30px_rgba(56,189,248,0.18)]'>
-					RG
+				<div className='flex h-11 w-11 items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-[0_0_30px_rgba(56,189,248,0.18)]'>
+					<Image
+						src='/RG_Logo.png'
+						alt='Rigify logo'
+						width={44}
+						height={44}
+						loading='eager'
+						className='h-full w-full object-contain'
+					/>
 				</div>
 				<div>
 					<p className='text-sm font-medium uppercase tracking-[0.3em] text-slate-400'>
@@ -165,7 +173,7 @@ export default function Page() {
 				className='absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-sky-400/60 to-transparent'
 			/>
 
-			<div className='mx-auto flex min-h-screen w-full max-w-6xl flex-col px-6 py-10 sm:px-10 lg:px-12'>
+			<div className='mx-auto flex min-h-screen w-full max-w-5xl flex-col px-6 pb-10 pt-4 sm:px-10 lg:px-12'>
 				<AuthHeader />
 
 				<PageMainTransition className='flex flex-1 items-center justify-center py-12 lg:py-16'>

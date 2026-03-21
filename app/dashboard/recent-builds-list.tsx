@@ -34,7 +34,7 @@ export default function RecentBuildsList({
 					},
 				},
 			}}
-			className='mt-6 grid gap-4'
+			className='mt-5 grid gap-3'
 		>
 			{builds.map((build) => {
 				const tone = getBottleneckTone(build.bottleneck_percentage)
@@ -56,11 +56,11 @@ export default function RecentBuildsList({
 					>
 						<Link
 							href={`/build/${build.id}`}
-							className='block rounded-3xl border border-white/10 bg-slate-950/50 p-5 transition hover:border-sky-300/25 hover:bg-slate-950/70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300'
+							className='block rounded-[1.4rem] border border-white/10 bg-slate-950/50 p-4 transition hover:border-sky-300/25 hover:bg-slate-950/70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300'
 						>
-							<div className='flex flex-wrap items-start justify-between gap-3'>
-								<div className='space-y-2'>
-									<h3 className='text-lg font-semibold text-white'>
+							<div className='flex flex-wrap items-start justify-between gap-2.5'>
+								<div className='space-y-1.5'>
+									<h3 className='text-base font-semibold text-white'>
 										{build.build_name}
 									</h3>
 									<p className='truncate text-sm text-slate-300'>
@@ -72,7 +72,7 @@ export default function RecentBuildsList({
 								</p>
 							</div>
 
-							<div className='mt-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-sm font-medium text-slate-200'>
+							<div className='mt-3 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-slate-200'>
 								<span className={`h-2.5 w-2.5 rounded-full ${tone.dotClassName}`} />
 								<span>{build.bottleneck_percentage}% bottleneck</span>
 							</div>

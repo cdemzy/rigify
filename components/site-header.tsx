@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
 import DashboardAccountMenu from './dashboard-account-menu'
@@ -19,8 +20,15 @@ function BrandMark({
 }) {
 	const content = (
 		<>
-			<div className='flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-sm font-semibold tracking-[0.25em] text-sky-300 shadow-[0_0_30px_rgba(56,189,248,0.18)]'>
-				RG
+			<div className='flex h-11 w-11 items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-[0_0_30px_rgba(56,189,248,0.18)]'>
+				<Image
+					src='/RG_Logo.png'
+					alt='Rigify logo'
+					width={44}
+					height={44}
+					loading='eager'
+					className='h-full w-full object-contain'
+				/>
 			</div>
 			<div>
 				<p className='text-sm font-medium uppercase tracking-[0.3em] text-slate-400'>
