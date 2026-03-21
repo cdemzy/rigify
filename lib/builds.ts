@@ -1,4 +1,4 @@
-export const MAX_BUILD_GAMES = 10
+export const MAX_BUILD_GAMES = 8
 
 const MAX_CPU_LENGTH = 120
 const MAX_GPU_LENGTH = 120
