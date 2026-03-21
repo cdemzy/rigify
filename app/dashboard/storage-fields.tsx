@@ -1,0 +1,77 @@
+'use client'
+
+import { useState } from 'react'
+
+const storageOptions = ['HDD', 'SSD', 'M.2'] as const
+
+export default function StorageFields() {
+	const [storageType, setStorageType] =
+		useState<(typeof storageOptions)[number]>('M.2')
+
+	const isM2 = storageType === 'M.2'
+
+	return (
+		<fieldset className='rounded-3xl border border-white/10 bg-white/3 p-4 md:col-span-2'>
+			<legend className='px-2 text-sm font-medium text-slate-200'>Storage</legend>
+			<div className='mt-3 grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
+				<div>
+					<label
+						htmlFor='storage-type'
+						className='block text-sm font-medium text-slate-200'
+					>
+						Type
+					</label>
+					<select
+						id='storage-type'
+						name='storageType'
+						value={storageType}
+						onChange={(event) =>
+							setStorageType(event.target.value as (typeof storageOptions)[number])
+						}
+						className='mt-2 block w-full rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-base text-white outline-none transition focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
+					>
+						{storageOptions.map((option) => (
+							<option key={option} value={option}>
+								{option}
+							</option>
+						))}
+					</select>
+				</div>
+
+				<div>
+					<label
+						htmlFor='storage-size'
+						className='block text-sm font-medium text-slate-200'
+					>
+						Size
+					</label>
+					<input
+						id='storage-size'
+						name='storageSize'
+						type='text'
+						placeholder='2TB'
+						className='mt-2 block w-full rounded-2xl border border-white/10 bg-white/4 px-4 py-3 text-base text-white outline-none transition placeholder:text-slate-500 focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
+					/>
+				</div>
+
+				{isM2 ? (
+					<div>
+						<label
+							htmlFor='storage-gen'
+							className='block text-sm font-medium text-slate-200'
+						>
+							Gen version
+						</label>
+						<input
+							id='storage-gen'
+							name='storageGen'
+							type='text'
+							placeholder='Gen 4'
+							className='mt-2 block w-full rounded-2xl border border-white/10 bg-white/4 px-4 py-3 text-base text-white outline-none transition placeholder:text-slate-500 focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
+						/>
+					</div>
+				) : null}
+			</div>
+		</fieldset>
+	)
+}
