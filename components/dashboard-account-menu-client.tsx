@@ -12,16 +12,10 @@ import {
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
-interface DashboardAccountMenuClientProps {
-	email: string
-}
-
 const triggerClassName =
-	'inline-flex min-h-11 items-center justify-center rounded-full border border-white/15 bg-white/5 px-5 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
+	'inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white transition hover:border-white/30 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
 
-export default function DashboardAccountMenuClient({
-	email,
-}: DashboardAccountMenuClientProps) {
+export default function DashboardAccountMenuClient() {
 	const router = useRouter()
 
 	async function handleLogout() {
@@ -33,7 +27,8 @@ export default function DashboardAccountMenuClient({
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger className={triggerClassName}>
-				<span className='max-w-52 truncate'>{email}</span>
+				<Settings className='h-4 w-4' />
+				<span className='sr-only'>Open account menu</span>
 			</DropdownMenuTrigger>
 			<DropdownMenuContent
 				align='end'

@@ -7,6 +7,19 @@ import { IoSparkles } from 'react-icons/io5'
 import SelectedGamesFields from './selected-games-fields'
 import StorageFields from './storage-fields'
 
+const ramCapacityOptions = [
+	'8GB',
+	'16GB',
+	'24GB',
+	'32GB',
+	'48GB',
+	'64GB',
+	'96GB',
+	'128GB',
+] as const
+
+const ramGenerationOptions = ['DDR3', 'DDR4', 'DDR5'] as const
+
 const requiredInputClassName =
 	'mt-1.5 block w-full rounded-2xl border px-4 py-2.5 text-sm text-white outline-none transition placeholder:text-slate-500 focus:ring-2'
 
@@ -118,11 +131,9 @@ export default function DashboardBuildForm() {
 							>
 								Capacity
 							</label>
-							<input
+							<select
 								id='ram-capacity'
 								name='ramCapacity'
-								type='text'
-								placeholder='32GB'
 								value={ramCapacity}
 								onChange={(event) => setRamCapacity(event.target.value)}
 								className={`${requiredInputClassName} ${
@@ -130,7 +141,16 @@ export default function DashboardBuildForm() {
 										? invalidInputClassName
 										: validInputClassName
 								}`}
-							/>
+							>
+								<option value='' disabled className='bg-slate-950 text-slate-500'>
+									Select capacity
+								</option>
+								{ramCapacityOptions.map((option) => (
+									<option key={option} value={option} className='bg-slate-950'>
+										{option}
+									</option>
+								))}
+							</select>
 							{isRamCapacityMissing ? (
 								<p className='mt-2 text-sm font-medium text-rose-300'>
 									RAM capacity is required
@@ -144,11 +164,9 @@ export default function DashboardBuildForm() {
 							>
 								Generation
 							</label>
-							<input
+							<select
 								id='ram-generation'
 								name='ramGeneration'
-								type='text'
-								placeholder='DDR5'
 								value={ramGeneration}
 								onChange={(event) => setRamGeneration(event.target.value)}
 								className={`${requiredInputClassName} ${
@@ -156,10 +174,19 @@ export default function DashboardBuildForm() {
 										? invalidInputClassName
 										: validInputClassName
 								}`}
-							/>
+							>
+								<option value='' disabled className='bg-slate-950 text-slate-500'>
+									Select generation
+								</option>
+								{ramGenerationOptions.map((option) => (
+									<option key={option} value={option} className='bg-slate-950'>
+										{option}
+									</option>
+								))}
+							</select>
 							{isRamGenerationMissing ? (
 								<p className='mt-2 text-sm font-medium text-rose-300'>
-									RAM speed or generation is required
+									RAM generation is required
 								</p>
 							) : null}
 						</div>
