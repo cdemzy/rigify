@@ -24,3 +24,112 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 48px;
+}
+
+@keyframes cta-glow-drift-a {
+  0% {
+    transform: translate3d(-26%, -14%, 0) scale(0.92) rotate(0deg);
+    opacity: 0.58;
+  }
+
+  21% {
+    transform: translate3d(-4%, 18%, 0) scale(1.16) rotate(18deg);
+    opacity: 0.96;
+  }
+
+  47% {
+    transform: translate3d(18%, -6%, 0) scale(1.02) rotate(-14deg);
+    opacity: 0.74;
+  }
+
+  73% {
+    transform: translate3d(10%, 16%, 0) scale(1.22) rotate(10deg);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: translate3d(-26%, -14%, 0) scale(0.92) rotate(0deg);
+    opacity: 0.58;
+  }
+}
+
+@keyframes cta-glow-drift-b {
+  0% {
+    transform: translate3d(20%, 10%, 0) scale(1.08) rotate(-8deg);
+    opacity: 0.52;
+  }
+
+  28% {
+    transform: translate3d(-12%, -20%, 0) scale(0.94) rotate(14deg);
+    opacity: 0.82;
+  }
+
+  54% {
+    transform: translate3d(-22%, 12%, 0) scale(1.18) rotate(-18deg);
+    opacity: 0.62;
+  }
+
+  79% {
+    transform: translate3d(16%, -8%, 0) scale(0.98) rotate(9deg);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: translate3d(20%, 10%, 0) scale(1.08) rotate(-8deg);
+    opacity: 0.52;
+  }
+}
+
+.cta-glow {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.cta-glow::before {
+  content: '';
+  position: absolute;
+  inset: -46%;
+  z-index: 0;
+  border-radius: 9999px;
+  background:
+    radial-gradient(circle at 18% 30%, rgba(125, 211, 252, 0.92), transparent 22%),
+    radial-gradient(circle at 36% 68%, rgba(34, 211, 238, 0.68), transparent 24%),
+    radial-gradient(circle at 64% 42%, rgba(45, 212, 191, 0.54), transparent 28%);
+  filter: blur(34px) saturate(120%);
+  animation: cta-glow-drift-a 11.5s cubic-bezier(0.45, 0.08, 0.55, 0.92) infinite;
+  pointer-events: none;
+}
+
+.cta-glow::after {
+  content: '';
+  position: absolute;
+  inset: -44%;
+  z-index: 0;
+  border-radius: 9999px;
+  background:
+    radial-gradient(circle at 76% 28%, rgba(59, 130, 246, 0.8), transparent 24%),
+    radial-gradient(circle at 62% 76%, rgba(56, 189, 248, 0.64), transparent 26%),
+    radial-gradient(circle at 28% 52%, rgba(14, 165, 233, 0.44), transparent 20%);
+  filter: blur(38px) saturate(125%);
+  animation: cta-glow-drift-b 13s cubic-bezier(0.42, 0.06, 0.58, 0.94) infinite;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.cta-glow > span,
+.cta-glow > svg {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-glow::before,
+  .cta-glow::after {
+    animation: none;
+  }
+}
