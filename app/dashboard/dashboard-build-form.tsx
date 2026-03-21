@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import { IoSparkles } from 'react-icons/io5'
+import { VscSparkleFilled } from 'react-icons/vsc'
 
 import SelectedGamesFields from './selected-games-fields'
 import StorageFields from './storage-fields'
@@ -260,7 +260,7 @@ export default function DashboardBuildForm() {
 				type='submit'
 				className='cta-glow inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full border border-sky-300/40 bg-slate-950 px-6 text-sm font-semibold text-white shadow-[0_18px_60px_rgba(14,165,233,0.28)] transition hover:border-sky-200/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300'
 			>
-				<IoSparkles className='h-3 w-3 text-white' />
+				<VscSparkleFilled className='h-3 w-3 text-white' />
 				<span>Evaluate</span>
 			</button>
 		</form>
