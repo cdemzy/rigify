@@ -21,8 +21,8 @@ const m2GenerationOptions = [
 ] as const
 
 export default function StorageFields() {
-	const [storageType, setStorageType] =
-		useState<(typeof storageOptions)[number]>('M.2')
+	const [storageType, setStorageType] = useState('')
+	const [storageGeneration, setStorageGeneration] = useState('')
 
 	const isM2 = storageType === 'M.2'
 
@@ -42,10 +42,13 @@ export default function StorageFields() {
 						name='storageType'
 						value={storageType}
 						onChange={(event) =>
-							setStorageType(event.target.value as (typeof storageOptions)[number])
+							setStorageType(event.target.value)
 						}
 						className='mt-1.5 block w-full rounded-2xl border border-white/10 bg-slate-950 px-4 py-2.5 text-sm text-white outline-none transition focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
 					>
+						<option value='' disabled>
+							Select a type
+						</option>
 						{storageOptions.map((option) => (
 							<option key={option} value={option}>
 								{option}
@@ -64,9 +67,12 @@ export default function StorageFields() {
 					<select
 						id='storage-size'
 						name='storageSize'
-						defaultValue='1000GB'
+						defaultValue=''
 						className='mt-1.5 block w-full rounded-2xl border border-white/10 bg-slate-950 px-4 py-2.5 text-sm text-white outline-none transition focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
 					>
+						<option value='' disabled>
+							Select a size
+						</option>
 						{storageSizeOptions.map((option) => (
 							<option key={option} value={option}>
 								{option}
@@ -75,28 +81,35 @@ export default function StorageFields() {
 					</select>
 				</div>
 
-				{isM2 ? (
-					<div>
-						<label
-							htmlFor='storage-gen'
-							className='block text-sm font-medium text-slate-200'
-						>
-							Gen version
-						</label>
-						<select
-							id='storage-gen'
-							name='storageGen'
-							defaultValue='Gen 4'
-							className='mt-1.5 block w-full rounded-2xl border border-white/10 bg-slate-950 px-4 py-2.5 text-sm text-white outline-none transition focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
-						>
-							{m2GenerationOptions.map((option) => (
-								<option key={option} value={option}>
-									{option}
-								</option>
-							))}
-						</select>
-					</div>
-				) : null}
+				<div>
+					<label
+						htmlFor='storage-gen'
+						className='block text-sm font-medium text-slate-200'
+					>
+						Gen version
+					</label>
+					<select
+						id='storage-gen'
+						name='storageGen'
+						value={isM2 ? storageGeneration : 'N/A'}
+						onChange={(event) => setStorageGeneration(event.target.value)}
+						disabled={!isM2}
+						className='mt-1.5 block w-full rounded-2xl border border-white/10 bg-slate-950 px-4 py-2.5 text-sm text-white outline-none transition focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30 disabled:cursor-not-allowed disabled:opacity-60'
+					>
+						{isM2 ? (
+							<option value='' disabled>
+								Select a gen
+							</option>
+						) : (
+							<option value='N/A'>N/A</option>
+						)}
+						{m2GenerationOptions.map((option) => (
+							<option key={option} value={option}>
+								{option}
+							</option>
+						))}
+					</select>
+				</div>
 			</div>
 		</fieldset>
 	)
