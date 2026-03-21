@@ -185,6 +185,14 @@ export function SignUpForm() {
 				throw signUpError
 			}
 
+			const markResponse = await fetch('/auth/sign-up-success/mark', {
+				method: 'POST',
+			})
+
+			if (!markResponse.ok) {
+				throw new Error('Unable to prepare sign-up success page')
+			}
+
 			router.push('/auth/sign-up-success')
 		} catch (signUpError: unknown) {
 			setError(

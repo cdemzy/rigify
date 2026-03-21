@@ -4,27 +4,6 @@ import SmoothScrollLink from '@/components/smooth-scroll-link'
 
 import DashboardBuildForm from './dashboard-build-form'
 
-const historyItems = [
-	{
-		title: '9700X + RTX 5070',
-		date: 'March 20',
-		summary: 'Well-balanced 1440p build with strong headroom for modern AAA titles.',
-		status: 'Ready for review',
-	},
-	{
-		title: '7800X3D Upgrade Draft',
-		date: 'March 18',
-		summary: 'Focused on competitive FPS gains and lower bottleneck risk at high refresh rates.',
-		status: 'Needs comparison',
-	},
-	{
-		title: 'Budget 1080p Starter Build',
-		date: 'March 15',
-		summary: 'Entry-level gaming setup with a tighter wattage envelope and upgrade-first path.',
-		status: 'Archived',
-	},
-]
-
 export default function Page() {
 	return (
 		<div className='relative isolate min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,rgba(56,189,248,0.16),transparent_34%),radial-gradient(circle_at_82%_18%,rgba(59,130,246,0.14),transparent_28%),linear-gradient(180deg,#050816_0%,#090d1c_40%,#04060d_100%)] text-white'>
@@ -78,26 +57,10 @@ export default function Page() {
 								</h2>
 							</div>
 
-							<div className='mt-6 grid gap-4 xl:grid-cols-2'>
-								{historyItems.map((item) => (
-									<article
-										key={item.title}
-										className='rounded-3xl border border-white/10 bg-slate-950/65 p-5'
-									>
-										<div className='flex flex-col gap-4'>
-											<div className='flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between'>
-												<div>
-													<p className='text-lg font-semibold text-white'>{item.title}</p>
-													<p className='mt-1 text-sm text-slate-500'>{item.date}</p>
-												</div>
-												<span className='inline-flex self-start rounded-full border border-sky-400/20 bg-sky-400/10 px-3 py-1 text-xs font-medium text-sky-200'>
-													{item.status}
-												</span>
-											</div>
-											<p className='text-sm leading-6 text-slate-300'>{item.summary}</p>
-										</div>
-									</article>
-								))}
+							<div className='mt-6 rounded-3xl border border-dashed border-white/10 bg-slate-950/40 p-5 text-center'>
+								<p className='text-sm font-medium text-slate-200'>
+									You have no recent builds for now.
+								</p>
 							</div>
 						</aside>
 					</section>
