@@ -1,6 +1,6 @@
 import PageMainTransition from '../components/page-main-transition'
+import LoginForm from '../components/login-form'
 import SiteHeader from '../components/site-header'
-import Link from 'next/link'
 
 export default function LoginPage() {
 	return (
@@ -13,130 +13,17 @@ export default function LoginPage() {
 			<div className='mx-auto flex min-h-screen w-full max-w-7xl flex-col px-6 py-10 sm:px-10 lg:px-12'>
 				<SiteHeader variant='auth' />
 
-				<PageMainTransition className='flex flex-1 items-center py-12 lg:py-16'>
-					<div className='grid w-full items-center gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(360px,0.85fr)] lg:gap-14'>
-						<div className='max-w-2xl'>
-							<p className='inline-flex items-center rounded-full border border-sky-400/20 bg-sky-400/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-sky-200'>
-								Access your saved builds
-							</p>
-							<h1 className='mt-8 text-4xl font-semibold tracking-[-0.04em] text-white sm:text-5xl lg:text-6xl'>
-								Log in to continue building smarter PCs.
+				<PageMainTransition className='flex flex-1 items-center justify-center py-12 lg:py-16'>
+					<div className='relative w-full max-w-md'>
+						<div className='absolute inset-0 -z-10 rounded-4xl bg-sky-400/10 blur-3xl' />
+						<div className='rounded-4xl border border-white/10 bg-slate-950/70 p-6 shadow-[0_30px_80px_rgba(2,6,23,0.5)] backdrop-blur sm:p-8'>
+							<h1 className='text-4xl font-semibold tracking-[-0.04em] text-white'>
+								Welcome back
 							</h1>
-							<p className='mt-6 max-w-xl text-lg leading-8 text-slate-300'>
-								Sign in to return to your saved submissions, compare upgrades, and
-								pick up where your last build evaluation left off.
+							<p className='mt-2 text-base text-slate-300'>
+								Log in to continue your build flow
 							</p>
-
-							<div className='mt-10 grid gap-4 sm:grid-cols-3'>
-								<div className='rounded-3xl border border-white/10 bg-white/4 p-5 backdrop-blur'>
-									<p className='text-sm font-semibold uppercase tracking-[0.25em] text-sky-300'>
-										Saved builds
-									</p>
-									<p className='mt-3 text-sm leading-6 text-slate-300'>
-										Keep your part lists organized in one place.
-									</p>
-								</div>
-								<div className='rounded-3xl border border-white/10 bg-white/4 p-5 backdrop-blur'>
-									<p className='text-sm font-semibold uppercase tracking-[0.25em] text-sky-300'>
-										FPS history
-									</p>
-									<p className='mt-3 text-sm leading-6 text-slate-300'>
-										Revisit past performance estimates and comparisons.
-									</p>
-								</div>
-								<div className='rounded-3xl border border-white/10 bg-white/4 p-5 backdrop-blur'>
-									<p className='text-sm font-semibold uppercase tracking-[0.25em] text-sky-300'>
-										Upgrade planning
-									</p>
-									<p className='mt-3 text-sm leading-6 text-slate-300'>
-										Track what changed as you refine your build over time.
-									</p>
-								</div>
-							</div>
-						</div>
-
-						<div className='relative'>
-							<div className='absolute inset-0 -z-10 rounded-4xl bg-sky-400/10 blur-3xl' />
-							<div className='rounded-4xl border border-white/10 bg-slate-950/75 p-6 shadow-[0_30px_80px_rgba(2,6,23,0.55)] backdrop-blur sm:p-8'>
-								<div className='border-b border-white/10 pb-6'>
-									<p className='text-xs uppercase tracking-[0.28em] text-slate-500'>
-										Account access
-									</p>
-									<h2 className='mt-3 text-2xl font-semibold text-white'>Welcome back</h2>
-									<p className='mt-3 text-sm leading-6 text-slate-300'>
-										Use your account to continue reviewing builds, part choices, and
-										performance expectations.
-									</p>
-								</div>
-
-								<form className='mt-6 space-y-5'>
-									<div>
-										<label
-											htmlFor='email'
-											className='block text-sm font-medium text-slate-200'
-										>
-											Email address
-										</label>
-										<input
-											id='email'
-											name='email'
-											type='email'
-											autoComplete='email'
-											placeholder='you@example.com'
-											className='mt-2 block w-full rounded-2xl border border-white/10 bg-white/4 px-4 py-3 text-base text-white outline-none transition placeholder:text-slate-500 focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
-										/>
-									</div>
-
-									<div>
-										<div className='flex items-center justify-between gap-4'>
-											<label
-												htmlFor='password'
-												className='block text-sm font-medium text-slate-200'
-											>
-												Password
-											</label>
-											<Link
-												href='/forgot-password'
-												className='text-sm font-medium text-sky-300 transition hover:text-sky-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300'
-											>
-												Forgot password?
-											</Link>
-										</div>
-										<input
-											id='password'
-											name='password'
-											type='password'
-											autoComplete='current-password'
-											placeholder='Enter your password'
-											className='mt-2 block w-full rounded-2xl border border-white/10 bg-white/4 px-4 py-3 text-base text-white outline-none transition placeholder:text-slate-500 focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
-										/>
-									</div>
-
-									<button
-										type='submit'
-										className='inline-flex min-h-14 w-full items-center justify-center rounded-full bg-sky-400 px-6 text-sm font-semibold text-slate-950 transition hover:bg-sky-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300'
-									>
-										Log In
-									</button>
-								</form>
-
-								<div className='mt-6 rounded-2xl border border-white/8 bg-white/3 p-4'>
-									<p className='text-sm leading-6 text-slate-300'>
-										Log in to return to saved builds, past evaluations, and the part
-										comparisons you were already working through.
-									</p>
-								</div>
-
-								<p className='mt-6 text-center text-sm text-slate-400'>
-									New to Rigify?{' '}
-									<Link
-										href='/signup'
-										className='font-semibold text-sky-300 transition hover:text-sky-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300'
-									>
-										Create an account
-									</Link>
-								</p>
-							</div>
+							<LoginForm />
 						</div>
 					</div>
 				</PageMainTransition>
