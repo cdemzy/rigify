@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, type ReactNode } from 'react'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
 
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 
@@ -55,6 +55,18 @@ export default function DashboardViewSwitcher({
 	)
 	const [direction, setDirection] = useState(1)
 	const activeIndex = sections.findIndex((section) => section.id === activeSection)
+	const previousInitialSection = useRef(initialSection)
+
+	useEffect(() => {
+		if (previousInitialSection.current === initialSection) {
+			return
+		}
+
+		const nextIndex = sections.findIndex((section) => section.id === initialSection)
+		setDirection(nextIndex > activeIndex ? 1 : -1)
+		setActiveSection(initialSection)
+		previousInitialSection.current = initialSection
+	}, [activeIndex, initialSection])
 
 	function setActiveSectionWithDirection(nextSection: DashboardSection) {
 		if (nextSection === activeSection) {
