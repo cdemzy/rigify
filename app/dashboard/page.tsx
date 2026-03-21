@@ -36,8 +36,8 @@ export default function Page() {
 			<div className='mx-auto flex min-h-screen w-full max-w-7xl flex-col px-6 py-10 sm:px-10 lg:px-12'>
 				<SiteHeader variant='dashboard' />
 
-				<PageMainTransition className='flex flex-1 flex-col gap-10 py-10'>
-					<section className='flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between'>
+				<PageMainTransition className='flex flex-1 flex-col gap-8 py-8'>
+					<section className='mx-auto flex w-full max-w-6xl flex-col gap-6 lg:flex-row lg:items-end lg:justify-between'>
 						<div className='max-w-3xl'>
 							<h1 className='inline-flex items-center rounded-full border border-sky-400/20 bg-sky-400/10 px-4 py-2 text-xl font-semibold uppercase tracking-[0.3em] text-sky-200'>
 								Build dashboard
@@ -52,8 +52,8 @@ export default function Page() {
 						</SmoothScrollLink>
 					</section>
 
-					<section className='flex flex-col gap-8'>
-						<div className='rounded-4xl border border-white/10 bg-slate-950/70 p-6 shadow-[0_30px_80px_rgba(2,6,23,0.4)] backdrop-blur sm:p-8'>
+					<section className='mx-auto flex w-full max-w-6xl flex-col gap-6'>
+						<div className='w-full rounded-4xl border border-white/10 bg-slate-950/70 p-5 shadow-[0_30px_80px_rgba(2,6,23,0.4)] backdrop-blur sm:p-6'>
 							<div className='flex flex-col gap-4 border-b border-white/10 pb-6 sm:flex-row sm:items-end sm:justify-between'>
 								<div>
 									<p className='text-xs uppercase tracking-[0.28em] text-slate-500'>
@@ -70,9 +70,9 @@ export default function Page() {
 								<p className='text-sm text-slate-400'>Draft mode</p>
 							</div>
 
-							<form className='mt-8 space-y-6'>
+							<form className='mt-6 space-y-5'>
 								<div className='grid gap-5 md:grid-cols-2'>
-									<div>
+									<div className='max-w-md'>
 										<label htmlFor='cpu' className='block text-sm font-medium text-slate-200'>
 											CPU
 										</label>
@@ -85,7 +85,7 @@ export default function Page() {
 										/>
 									</div>
 
-									<div>
+									<div className='max-w-md'>
 										<label htmlFor='gpu' className='block text-sm font-medium text-slate-200'>
 											GPU
 										</label>
@@ -98,7 +98,7 @@ export default function Page() {
 										/>
 									</div>
 
-									<fieldset className='rounded-3xl border border-white/10 bg-white/3 p-4 md:col-span-2'>
+									<fieldset className='max-w-3xl rounded-3xl border border-white/10 bg-white/3 p-4 md:col-span-2'>
 										<legend className='px-2 text-sm font-medium text-slate-200'>RAM</legend>
 										<div className='mt-3 grid gap-4 sm:grid-cols-2'>
 											<div>
@@ -134,7 +134,7 @@ export default function Page() {
 										</div>
 									</fieldset>
 
-									<div>
+									<div className='max-w-md'>
 										<label htmlFor='psu' className='block text-sm font-medium text-slate-200'>
 											PSU
 										</label>
@@ -147,7 +147,7 @@ export default function Page() {
 										/>
 									</div>
 
-									<fieldset className='rounded-3xl border border-white/10 bg-white/3 p-4 md:col-span-2'>
+									<fieldset className='max-w-3xl rounded-3xl border border-white/10 bg-white/3 p-4 md:col-span-2'>
 										<legend className='px-2 text-sm font-medium text-slate-200'>Display</legend>
 										<div className='mt-3 grid gap-4 sm:grid-cols-2'>
 											<div>
@@ -185,7 +185,7 @@ export default function Page() {
 
 									<StorageFields />
 
-									<div>
+									<div className='max-w-xl md:col-span-2'>
 										<label htmlFor='games' className='block text-sm font-medium text-slate-200'>
 											Selected games
 										</label>
@@ -209,7 +209,7 @@ export default function Page() {
 
 								<button
 									type='submit'
-									className='cta-glow inline-flex min-h-14 w-full items-center justify-center rounded-full border border-sky-300/40 bg-slate-950 px-6 text-sm font-semibold text-white shadow-[0_18px_60px_rgba(14,165,233,0.28)] transition hover:border-sky-200/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300'
+									className='cta-glow inline-flex min-h-12 w-full items-center justify-center rounded-full border border-sky-300/40 bg-slate-950 px-6 text-sm font-semibold text-white shadow-[0_18px_60px_rgba(14,165,233,0.28)] transition hover:border-sky-200/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300'
 								>
 									<span>Evaluate</span>
 								</button>
@@ -218,7 +218,7 @@ export default function Page() {
 
 						<aside
 							id='recent-builds'
-							className='rounded-4xl border border-white/10 bg-white/4 p-6 backdrop-blur scroll-mt-20 sm:p-8'
+							className='w-full rounded-4xl border border-white/10 bg-white/4 p-5 backdrop-blur scroll-mt-20 sm:p-6'
 						>
 							<div className='border-b border-white/10 pb-6'>
 								<p className='text-xs uppercase tracking-[0.28em] text-slate-500'>
@@ -233,7 +233,7 @@ export default function Page() {
 								</p>
 							</div>
 
-							<div className='mt-6 grid gap-4'>
+							<div className='mt-6 grid gap-4 lg:grid-cols-2'>
 								{historyItems.map((item) => (
 									<article
 										key={item.title}

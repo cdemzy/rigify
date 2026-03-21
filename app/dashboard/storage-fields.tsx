@@ -3,6 +3,14 @@
 import { useState } from 'react'
 
 const storageOptions = ['HDD', 'SSD', 'M.2'] as const
+const m2GenerationOptions = [
+	'Gen 1',
+	'Gen 2',
+	'Gen 3',
+	'Gen 4',
+	'Gen 5',
+	'Gen 6',
+] as const
 
 export default function StorageFields() {
 	const [storageType, setStorageType] =
@@ -62,13 +70,18 @@ export default function StorageFields() {
 						>
 							Gen version
 						</label>
-						<input
+						<select
 							id='storage-gen'
 							name='storageGen'
-							type='text'
-							placeholder='Gen 4'
-							className='mt-2 block w-full rounded-2xl border border-white/10 bg-white/4 px-4 py-3 text-base text-white outline-none transition placeholder:text-slate-500 focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
-						/>
+							defaultValue='Gen 4'
+							className='mt-2 block w-full rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-base text-white outline-none transition focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
+						>
+							{m2GenerationOptions.map((option) => (
+								<option key={option} value={option}>
+									{option}
+								</option>
+							))}
+						</select>
 					</div>
 				) : null}
 			</div>
