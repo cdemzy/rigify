@@ -1,5 +1,10 @@
+import { Suspense } from 'react'
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
+
+import AuthErrorRedirectHandler from '@/components/auth-error-redirect-handler'
+import SonnerToaster from '@/components/sonner-toaster'
+
 import './globals.css'
 
 const geistSans = Geist({
@@ -26,10 +31,15 @@ export default function RootLayout({
 	return (
 		<html
 			lang='en'
+			data-scroll-behavior='smooth'
 			className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
 		>
 			<body suppressHydrationWarning className='min-h-full flex flex-col'>
+				<Suspense fallback={null}>
+					<AuthErrorRedirectHandler />
+				</Suspense>
 				{children}
+				<SonnerToaster />
 			</body>
 		</html>
 	)

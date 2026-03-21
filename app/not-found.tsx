@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
-import PageMainTransition from './components/page-main-transition'
-import SiteHeader from './components/site-header'
+import PageMainTransition from '@/components/page-main-transition'
+import SiteHeader from '@/components/site-header'
 
 const headings = [
 	'Well, this is awkward.',
@@ -41,13 +41,9 @@ const messages = [
 	"Yep, it's a 404. We're just as surprised as you are.",
 ]
 
-function getRandomItem(items: string[]) {
-	return items[Math.floor(Math.random() * items.length)]
-}
-
 export default function NotFound() {
-	const heading = getRandomItem(headings)
-	const message = getRandomItem(messages)
+	const heading = headings[0]
+	const message = messages[0]
 
 	return (
 		<div className='relative isolate min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,rgba(56,189,248,0.16),transparent_34%),radial-gradient(circle_at_82%_18%,rgba(59,130,246,0.14),transparent_28%),linear-gradient(180deg,#050816_0%,#090d1c_40%,#04060d_100%)] text-white'>
@@ -56,7 +52,7 @@ export default function NotFound() {
 				className='absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-sky-400/60 to-transparent'
 			/>
 
-			<div className='mx-auto flex min-h-screen w-full max-w-7xl flex-col px-6 py-10 sm:px-10 lg:px-12'>
+			<div className='mx-auto flex min-h-screen w-full max-w-6xl flex-col px-6 py-10 sm:px-10 lg:px-12'>
 				<SiteHeader variant='auth' />
 
 				<PageMainTransition className='flex flex-1 items-center justify-center py-12 lg:py-16'>
@@ -79,7 +75,7 @@ export default function NotFound() {
 								Return Home
 							</Link>
 							<Link
-								href='/login'
+								href='/auth/login'
 								className='inline-flex min-h-14 min-w-44 items-center justify-center rounded-full border border-white/15 bg-white/5 px-7 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
 							>
 								Go to Login
