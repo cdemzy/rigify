@@ -29,6 +29,21 @@ const sections: Array<{
 	},
 ]
 
+const sectionSlideVariants = {
+	enter: (direction: number) => ({
+		opacity: 0,
+		x: direction > 0 ? 88 : -88,
+	}),
+	center: {
+		opacity: 1,
+		x: 0,
+	},
+	exit: (direction: number) => ({
+		opacity: 0,
+		x: direction > 0 ? -88 : 88,
+	}),
+}
+
 export default function DashboardViewSwitcher({
 	initialSection = 'new-build',
 	buildForm,
@@ -104,25 +119,12 @@ export default function DashboardViewSwitcher({
 				<motion.div
 					key={activeSection}
 					custom={direction}
-					initial={
-						shouldReduceMotion
-							? { opacity: 1 }
-							: (currentDirection: number) => ({
-									opacity: 0,
-									x: currentDirection > 0 ? 88 : -88,
-							  })
-					}
-					animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, x: 0 }}
-					exit={
-						shouldReduceMotion
-							? { opacity: 1 }
-							: (currentDirection: number) => ({
-									opacity: 0,
-									x: currentDirection > 0 ? -88 : 88,
-							  })
-					}
+					variants={sectionSlideVariants}
+					initial={shouldReduceMotion ? false : 'enter'}
+					animate='center'
+					exit={shouldReduceMotion ? undefined : 'exit'}
 					transition={{
-						duration: shouldReduceMotion ? 0 : 0.28,
+						duration: shouldReduceMotion ? 0 : 0.08,
 						ease: [0.22, 1, 0.36, 1],
 					}}
 					drag={shouldReduceMotion ? false : 'x'}
