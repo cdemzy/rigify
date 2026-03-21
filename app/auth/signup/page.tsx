@@ -5,6 +5,13 @@ import { useRouter } from 'next/navigation'
 import { useId, useState } from 'react'
 
 import PageMainTransition from '@/components/page-main-transition'
+import {
+	isValidEmail,
+	isValidPasswordLength,
+	MAX_EMAIL_LENGTH,
+	MAX_PASSWORD_LENGTH,
+	normalizeEmail,
+} from '@/lib/security'
 import { createClient } from '@/lib/supabase/client'
 
 interface Requirement {
@@ -13,8 +20,6 @@ interface Requirement {
 	test: (value: string) => boolean
 	errorText: string
 }
-
-const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 const passwordRequirements: Requirement[] = [
 	{
@@ -120,7 +125,7 @@ export default function Page() {
 	const router = useRouter()
 
 	const hasEmailValue = email.length > 0
-	const isEmailValid = emailPattern.test(email)
+	const isEmailValid = isValidEmail(email)
 	const showEmailError = hasEmailValue && !isEmailValid
 
 	const hasPasswordValue = password.length > 0
@@ -145,7 +150,13 @@ export default function Page() {
 		event.preventDefault()
 		setError(null)
 
-		if (!isEmailValid || !isPasswordValid) {
+		const normalizedEmail = normalizeEmail(email)
+
+		if (
+			!isValidEmail(normalizedEmail) ||
+			!isValidPasswordLength(password) ||
+			!isPasswordValid
+		) {
 			setError('Please fix the highlighted fields before continuing')
 			return
 		}
@@ -158,7 +169,7 @@ export default function Page() {
 			confirmRedirectUrl.searchParams.set('next', '/auth/login?verified=1')
 
 			const { error: signUpError } = await supabase.auth.signUp({
-				email,
+				email: normalizedEmail,
 				password,
 				options: {
 					emailRedirectTo: confirmRedirectUrl.toString(),
@@ -223,6 +234,7 @@ export default function Page() {
 										placeholder='you@example.com'
 										value={email}
 										onChange={(event) => setEmail(event.target.value)}
+										maxLength={MAX_EMAIL_LENGTH}
 										className={`${inputBaseClassName} ${
 											showEmailError ? invalidInputClassName : validInputClassName
 										}`}
@@ -250,6 +262,7 @@ export default function Page() {
 											placeholder='Create a password'
 											value={password}
 											onChange={(event) => setPassword(event.target.value)}
+											maxLength={MAX_PASSWORD_LENGTH}
 											className={`${inputBaseClassName} pr-12 ${
 												showPasswordError
 													? invalidInputClassName

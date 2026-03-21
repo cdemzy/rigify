@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import { useId, useState } from 'react'
 
 import PageMainTransition from '@/components/page-main-transition'
+import { isValidPasswordLength, MAX_PASSWORD_LENGTH } from '@/lib/security'
 import { createClient } from '@/lib/supabase/client'
 
 const passwordRequirements = [
@@ -130,7 +131,7 @@ export default function Page() {
 		event.preventDefault()
 		setError(null)
 
-		if (!isPasswordValid) {
+		if (!isValidPasswordLength(password) || !isPasswordValid) {
 			setError('Please create a password that meets all requirements')
 			return
 		}
@@ -194,6 +195,7 @@ export default function Page() {
 											placeholder='Create a new password'
 											value={password}
 											onChange={(event) => setPassword(event.target.value)}
+											maxLength={MAX_PASSWORD_LENGTH}
 											className={`${inputBaseClassName} pr-12 ${
 												showPasswordError
 													? invalidInputClassName

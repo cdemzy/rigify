@@ -6,9 +6,14 @@ import { Suspense, useId, useState } from 'react'
 
 import PageMainTransition from '@/components/page-main-transition'
 import LoginVerifiedToast from './login-verified-toast'
+import {
+	isValidEmail,
+	isValidPasswordLength,
+	MAX_EMAIL_LENGTH,
+	MAX_PASSWORD_LENGTH,
+	normalizeEmail,
+} from '@/lib/security'
 import { createClient } from '@/lib/supabase/client'
-
-const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 const baseActionClassName =
 	'inline-flex min-h-11 items-center justify-center rounded-full border border-white/15 bg-white/5 px-5 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
@@ -45,7 +50,7 @@ export default function Page() {
 	const router = useRouter()
 
 	const hasEmailValue = email.length > 0
-	const isEmailValid = emailPattern.test(email)
+	const isEmailValid = isValidEmail(email)
 	const showEmailError = hasEmailValue && !isEmailValid
 
 	const inputBaseClassName =
@@ -59,6 +64,12 @@ export default function Page() {
 
 	async function handleLogin(event: React.FormEvent<HTMLFormElement>) {
 		event.preventDefault()
+		const normalizedEmail = normalizeEmail(email)
+
+		if (!isValidEmail(normalizedEmail) || !isValidPasswordLength(password)) {
+			setError('Please enter a valid email and password before continuing')
+			return
+		}
 
 		const supabase = createClient()
 		setIsLoading(true)
@@ -66,7 +77,7 @@ export default function Page() {
 
 		try {
 			const { error: signInError } = await supabase.auth.signInWithPassword({
-				email,
+				email: normalizedEmail,
 				password,
 			})
 
@@ -123,6 +134,7 @@ export default function Page() {
 										placeholder='you@example.com'
 										value={email}
 										onChange={(event) => setEmail(event.target.value)}
+										maxLength={MAX_EMAIL_LENGTH}
 										className={`${inputBaseClassName} ${
 											showEmailError ? invalidInputClassName : validInputClassName
 										}`}
@@ -159,6 +171,7 @@ export default function Page() {
 											placeholder='Enter your password'
 											value={password}
 											onChange={(event) => setPassword(event.target.value)}
+											maxLength={MAX_PASSWORD_LENGTH}
 											className={`${inputBaseClassName} pr-12 ${validInputClassName}`}
 										/>
 										<button

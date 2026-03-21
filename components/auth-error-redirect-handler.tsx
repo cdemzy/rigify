@@ -4,20 +4,7 @@ import { useEffect, useRef } from 'react'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { toast } from 'sonner'
 
-function getAuthErrorMessage(
-	errorCode: string | null,
-	errorDescription: string | null,
-) {
-	if (errorCode === 'otp_expired') {
-		return 'This email link is invalid or has expired. Please request a new one.'
-	}
-
-	if (errorDescription) {
-		return errorDescription
-	}
-
-	return 'We could not complete that email verification request.'
-}
+import { getSafeAuthErrorMessage } from '@/lib/security'
 
 export default function AuthErrorRedirectHandler() {
 	const hasHandledRef = useRef(false)
@@ -28,7 +15,6 @@ export default function AuthErrorRedirectHandler() {
 	useEffect(() => {
 		const error = searchParams.get('error')
 		const errorCode = searchParams.get('error_code')
-		const errorDescription = searchParams.get('error_description')
 
 		if (
 			hasHandledRef.current ||
@@ -40,7 +26,7 @@ export default function AuthErrorRedirectHandler() {
 
 		hasHandledRef.current = true
 
-		toast.error(getAuthErrorMessage(errorCode, errorDescription))
+		toast.error(getSafeAuthErrorMessage(errorCode))
 		router.replace('/')
 	}, [pathname, router, searchParams])
 

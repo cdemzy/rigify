@@ -5,9 +5,8 @@ import { useId, useState } from 'react'
 import { toast } from 'sonner'
 
 import PageMainTransition from '@/components/page-main-transition'
+import { isValidEmail, MAX_EMAIL_LENGTH, normalizeEmail } from '@/lib/security'
 import { createClient } from '@/lib/supabase/client'
-
-const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 const baseActionClassName =
 	'inline-flex min-h-11 items-center justify-center rounded-full border border-white/15 bg-white/5 px-5 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
@@ -39,7 +38,7 @@ export default function Page() {
 	const [isLoading, setIsLoading] = useState(false)
 
 	const hasEmailValue = email.length > 0
-	const isEmailValid = emailPattern.test(email)
+	const isEmailValid = isValidEmail(email)
 	const showEmailError = hasEmailValue && !isEmailValid
 
 	const inputBaseClassName =
@@ -53,8 +52,9 @@ export default function Page() {
 
 	async function handleForgotPassword(event: React.FormEvent<HTMLFormElement>) {
 		event.preventDefault()
+		const normalizedEmail = normalizeEmail(email)
 
-		if (!isEmailValid) {
+		if (!isValidEmail(normalizedEmail)) {
 			toast.error('Please enter a valid email before continuing')
 			return
 		}
@@ -64,7 +64,7 @@ export default function Page() {
 
 		try {
 			const { error: resetError } = await supabase.auth.resetPasswordForEmail(
-				email,
+				normalizedEmail,
 				{
 					redirectTo: `${window.location.origin}/auth/update-password`,
 				},
@@ -123,6 +123,7 @@ export default function Page() {
 										placeholder='you@example.com'
 										value={email}
 										onChange={(event) => setEmail(event.target.value)}
+										maxLength={MAX_EMAIL_LENGTH}
 										className={`${inputBaseClassName} ${
 											showEmailError ? invalidInputClassName : validInputClassName
 										}`}
