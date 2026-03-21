@@ -2,9 +2,10 @@ import { Suspense } from 'react'
 
 import PageMainTransition from '@/components/page-main-transition'
 import SiteHeader from '@/components/site-header'
-import SmoothScrollLink from '@/components/smooth-scroll-link'
 
 import DashboardBuildForm from './dashboard-build-form'
+import RecentBuildsButton from './recent-builds-button'
+import RecentBuildsScrollTarget from './recent-builds-scroll-target'
 import RecentBuildsSection from './recent-builds-section'
 import RecentBuildsSectionSkeleton from './recent-builds-section-skeleton'
 
@@ -18,6 +19,9 @@ export default function Page() {
 
 			<div className='mx-auto flex min-h-screen w-full max-w-5xl flex-col px-4 pb-8 pt-4 sm:px-8 sm:pb-10 lg:px-10'>
 				<SiteHeader variant='dashboard' />
+				<Suspense fallback={null}>
+					<RecentBuildsScrollTarget />
+				</Suspense>
 
 				<PageMainTransition className='flex flex-1 flex-col gap-6 py-6 sm:gap-8 sm:py-8'>
 					<section className='mx-auto flex w-full flex-col gap-4 sm:gap-6 md:flex-row md:items-end md:justify-between'>
@@ -27,12 +31,7 @@ export default function Page() {
 							</h1>
 						</div>
 
-						<SmoothScrollLink
-							href='#recent-builds'
-							className='inline-flex min-h-10 w-full items-center justify-center whitespace-nowrap rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white md:w-auto md:self-auto'
-						>
-							Recent Builds
-						</SmoothScrollLink>
+						<RecentBuildsButton />
 					</section>
 
 					<section id='build-form-and-history' className='mx-auto flex w-full flex-col gap-8 sm:gap-10'>

@@ -93,7 +93,7 @@ export default function BuildInputFields({
 	}
 
 	return (
-		<div className='grid gap-4 md:grid-cols-3'>
+		<div className='grid gap-4 lg:grid-cols-2'>
 			<div className='w-full'>
 				<label htmlFor='cpu' className='block text-sm font-medium text-slate-200'>
 					CPU
@@ -128,7 +128,7 @@ export default function BuildInputFields({
 				<FieldError message={fieldErrors.gpu} />
 			</div>
 
-			<fieldset className='w-full rounded-3xl border border-white/10 bg-white/3 p-3.5 md:col-span-2'>
+			<fieldset className='w-full rounded-3xl border border-white/10 bg-white/3 p-3.5'>
 				<legend className='px-2 text-sm font-medium text-slate-200'>RAM</legend>
 				<div className='mt-2.5 grid gap-3 sm:grid-cols-2'>
 					<div>
@@ -191,7 +191,7 @@ export default function BuildInputFields({
 				</div>
 			</fieldset>
 
-			<fieldset className='w-full rounded-3xl border border-white/10 bg-white/3 p-3.5 md:col-span-1'>
+			<fieldset className='w-full rounded-3xl border border-white/10 bg-white/3 p-3.5'>
 				<legend className='px-2 text-sm font-medium text-slate-200'>Display</legend>
 				<div className='mt-2.5 grid gap-3 sm:grid-cols-2'>
 					<div>
@@ -238,7 +238,7 @@ export default function BuildInputFields({
 				</div>
 			</fieldset>
 
-			<fieldset className='w-full rounded-3xl border border-white/10 bg-white/3 p-3.5 md:col-span-3'>
+			<fieldset className='w-full rounded-3xl border border-white/10 bg-white/3 p-3.5 lg:col-span-2'>
 				<legend className='px-2 text-sm font-medium text-slate-200'>
 					Selected games
 				</legend>
