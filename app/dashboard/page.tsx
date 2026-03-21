@@ -1,6 +1,7 @@
 import PageMainTransition from '@/components/page-main-transition'
 import SiteHeader from '@/components/site-header'
 import SmoothScrollLink from '@/components/smooth-scroll-link'
+import { IoSparkles } from 'react-icons/io5'
 
 import SelectedGamesFields from './selected-games-fields'
 import StorageFields from './storage-fields'
@@ -34,11 +35,11 @@ export default function Page() {
 				className='absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-sky-400/60 to-transparent'
 			/>
 
-			<div className='mx-auto flex min-h-screen w-full max-w-5xl flex-col px-6 pb-10 pt-4 sm:px-10 sm:pb-10 lg:px-12'>
+			<div className='mx-auto flex min-h-screen w-full max-w-5xl flex-col px-4 pb-8 pt-4 sm:px-8 sm:pb-10 lg:px-10'>
 				<SiteHeader variant='dashboard' />
 
-				<PageMainTransition className='flex flex-1 flex-col gap-8 py-8'>
-					<section className='mx-auto flex w-full max-w-6xl flex-col gap-6 lg:flex-row lg:items-end lg:justify-between'>
+				<PageMainTransition className='flex flex-1 flex-col gap-6 py-6 sm:gap-8 sm:py-8'>
+					<section className='mx-auto flex w-full flex-col gap-4 sm:gap-6 lg:flex-row lg:items-end lg:justify-between'>
 						<div className='max-w-3xl'>
 							<h1 className='inline-flex items-center rounded-full border border-sky-400/20 bg-sky-400/10 px-4 py-2 text-xl font-semibold uppercase tracking-[0.3em] text-sky-200'>
 								Build dashboard
@@ -47,13 +48,13 @@ export default function Page() {
 
 						<SmoothScrollLink
 							href='#recent-builds'
-							className='inline-flex min-h-10 whitespace-nowrap items-center justify-center rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
+							className='inline-flex min-h-10 self-start whitespace-nowrap items-center justify-center rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
 						>
 							Recent Builds
 						</SmoothScrollLink>
 					</section>
 
-					<section id='build-form-and-history' className='mx-auto flex w-full max-w-6xl flex-col gap-10'>
+					<section id='build-form-and-history' className='mx-auto flex w-full flex-col gap-8 sm:gap-10'>
 						<div className='w-full rounded-4xl border border-white/10 bg-slate-950/70 p-5 shadow-[0_30px_80px_rgba(2,6,23,0.4)] backdrop-blur sm:p-6'>
 							<div className='flex flex-col gap-4 border-b border-white/10 pb-6 sm:flex-row sm:items-end sm:justify-between'>
 								<div>
@@ -64,8 +65,8 @@ export default function Page() {
 							</div>
 
 							<form className='mt-5 space-y-4'>
-								<div className='grid gap-4 lg:grid-cols-3'>
-									<div className='max-w-md'>
+								<div className='grid gap-4 sm:grid-cols-2 xl:grid-cols-3'>
+									<div className='w-full'>
 										<label htmlFor='cpu' className='block text-sm font-medium text-slate-200'>
 											CPU
 										</label>
@@ -78,7 +79,7 @@ export default function Page() {
 										/>
 									</div>
 
-									<div className='max-w-md'>
+									<div className='w-full'>
 										<label htmlFor='gpu' className='block text-sm font-medium text-slate-200'>
 											GPU
 										</label>
@@ -91,7 +92,7 @@ export default function Page() {
 										/>
 									</div>
 
-									<div className='max-w-md'>
+									<div className='w-full'>
 										<label htmlFor='psu' className='block text-sm font-medium text-slate-200'>
 											PSU
 										</label>
@@ -104,7 +105,7 @@ export default function Page() {
 										/>
 									</div>
 
-									<fieldset className='w-full rounded-3xl border border-white/10 bg-white/3 p-3.5 lg:col-span-3 xl:col-span-2'>
+									<fieldset className='w-full rounded-3xl border border-white/10 bg-white/3 p-3.5 sm:col-span-2 xl:col-span-2'>
 										<legend className='px-2 text-sm font-medium text-slate-200'>RAM</legend>
 										<div className='mt-2.5 grid gap-3 sm:grid-cols-2'>
 											<div>
@@ -140,7 +141,7 @@ export default function Page() {
 										</div>
 									</fieldset>
 
-									<fieldset className='w-full rounded-3xl border border-white/10 bg-white/3 p-3.5 lg:col-span-3 xl:col-span-1'>
+									<fieldset className='w-full rounded-3xl border border-white/10 bg-white/3 p-3.5 sm:col-span-2 xl:col-span-1'>
 										<legend className='px-2 text-sm font-medium text-slate-200'>Display</legend>
 										<div className='mt-2.5 grid gap-3 sm:grid-cols-2'>
 											<div>
@@ -183,8 +184,9 @@ export default function Page() {
 
 								<button
 									type='submit'
-									className='cta-glow inline-flex min-h-11 w-full items-center justify-center rounded-full border border-sky-300/40 bg-slate-950 px-6 text-sm font-semibold text-white shadow-[0_18px_60px_rgba(14,165,233,0.28)] transition hover:border-sky-200/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300'
+									className='cta-glow inline-flex min-h-11 w-full items-center justify-center rounded-full border border-sky-300/40 bg-slate-950 px-6 text-sm font-semibold text-white shadow-[0_18px_60px_rgba(14,165,233,0.28)] transition hover:border-sky-200/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300 gap-2'
 								>
+									<IoSparkles className='h-3 w-3 text-white' />
 									<span>Evaluate</span>
 								</button>
 							</form>
@@ -207,7 +209,7 @@ export default function Page() {
 								</p>
 							</div>
 
-							<div className='mt-6 grid gap-4 lg:grid-cols-2'>
+							<div className='mt-6 grid gap-4 xl:grid-cols-2'>
 								{historyItems.map((item) => (
 									<article
 										key={item.title}
