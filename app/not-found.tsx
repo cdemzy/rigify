@@ -41,13 +41,9 @@ const messages = [
 	"Yep, it's a 404. We're just as surprised as you are.",
 ]
 
-function getRandomItem(items: string[]) {
-	return items[Math.floor(Math.random() * items.length)]
-}
-
 export default function NotFound() {
-	const heading = getRandomItem(headings)
-	const message = getRandomItem(messages)
+	const heading = headings[0]
+	const message = messages[0]
 
 	return (
 		<div className='relative isolate min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,rgba(56,189,248,0.16),transparent_34%),radial-gradient(circle_at_82%_18%,rgba(59,130,246,0.14),transparent_28%),linear-gradient(180deg,#050816_0%,#090d1c_40%,#04060d_100%)] text-white'>
