@@ -15,28 +15,6 @@ interface Requirement {
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
-const usernameRequirements: Requirement[] = [
-	{
-		id: 'length',
-		label: '3 to 15 characters',
-		test: (value) => value.length >= 3 && value.length <= 15,
-		errorText: 'Username must be between 3 and 15 characters',
-	},
-	{
-		id: 'start',
-		label: 'Cannot start with a number',
-		test: (value) => value.length === 0 || !/^\d/.test(value),
-		errorText: 'Username cannot start with a number',
-	},
-	{
-		id: 'characters',
-		label: 'Only letters, numbers, underscores, and periods',
-		test: (value) => /^[A-Za-z0-9._]+$/.test(value),
-		errorText:
-			'Username can only use letters, numbers, underscores, and periods',
-	},
-]
-
 const passwordRequirements: Requirement[] = [
 	{
 		id: 'uppercase',
@@ -106,34 +84,15 @@ function getFirstPasswordError(password: string) {
 	return unmetRequirement?.errorText ?? ''
 }
 
-function getFirstUsernameError(username: string) {
-	const unmetRequirement = usernameRequirements.find(
-		(requirement) => !requirement.test(username),
-	)
-
-	return unmetRequirement?.errorText ?? ''
-}
-
 export function SignUpForm() {
-	const usernameId = useId()
 	const emailId = useId()
 	const passwordId = useId()
-	const [username, setUsername] = useState('')
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 	const [showPassword, setShowPassword] = useState(false)
 	const [error, setError] = useState<string | null>(null)
 	const [isLoading, setIsLoading] = useState(false)
 	const router = useRouter()
-
-	const hasUsernameValue = username.length > 0
-	const usernameChecks = usernameRequirements.map((requirement) => ({
-		...requirement,
-		isMet: requirement.test(username),
-	}))
-	const isUsernameValid = usernameChecks.every((requirement) => requirement.isMet)
-	const showUsernameError = hasUsernameValue && !isUsernameValid
-	const usernameError = showUsernameError ? getFirstUsernameError(username) : ''
 
 	const hasEmailValue = email.length > 0
 	const isEmailValid = emailPattern.test(email)
@@ -161,7 +120,7 @@ export function SignUpForm() {
 		event.preventDefault()
 		setError(null)
 
-		if (!isUsernameValid || !isEmailValid || !isPasswordValid) {
+		if (!isEmailValid || !isPasswordValid) {
 			setError('Please fix the highlighted fields before continuing')
 			return
 		}
@@ -170,14 +129,14 @@ export function SignUpForm() {
 		setIsLoading(true)
 
 		try {
+			const confirmRedirectUrl = new URL('/auth/confirm', window.location.origin)
+			confirmRedirectUrl.searchParams.set('next', '/auth/login?verified=1')
+
 			const { error: signUpError } = await supabase.auth.signUp({
 				email,
 				password,
 				options: {
-					data: {
-						username,
-					},
-					emailRedirectTo: `${window.location.origin}/dashboard`,
+					emailRedirectTo: confirmRedirectUrl.toString(),
 				},
 			})
 
@@ -212,49 +171,6 @@ export function SignUpForm() {
 				</h1>
 				<p className='mt-2 text-sm text-slate-300 sm:text-[0.95rem]'>Create a new account</p>
 				<form onSubmit={handleSignUp} className='mt-6 space-y-4.5'>
-					<div>
-						<label
-							htmlFor={usernameId}
-							className='block text-sm font-medium text-slate-200'
-						>
-							Username
-						</label>
-						<input
-							id={usernameId}
-							name='username'
-							type='text'
-							autoComplete='username'
-							placeholder='rigify_user'
-							value={username}
-							onChange={(event) => setUsername(event.target.value)}
-							maxLength={15}
-							className={`${inputBaseClassName} ${
-								showUsernameError ? invalidInputClassName : validInputClassName
-							}`}
-						/>
-						{showUsernameError ? (
-							<p className='mt-2 text-sm font-medium text-rose-300'>
-								{usernameError}
-							</p>
-						) : null}
-
-						{hasUsernameValue ? (
-							<ul className='mt-3 space-y-1.5' aria-live='polite'>
-								{usernameChecks.map((requirement) => (
-									<li
-										key={requirement.id}
-										className={`flex items-center gap-3 text-sm ${
-											requirement.isMet ? 'text-slate-100' : 'text-slate-400'
-										}`}
-									>
-										<RequirementIcon isMet={requirement.isMet} />
-										<span>{requirement.label}</span>
-									</li>
-								))}
-							</ul>
-						) : null}
-					</div>
-
 					<div>
 						<label
 							htmlFor={emailId}

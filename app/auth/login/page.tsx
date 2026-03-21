@@ -1,6 +1,10 @@
+import { Suspense } from 'react'
+
 import { LoginForm } from '@/components/login-form'
 import PageMainTransition from '@/components/page-main-transition'
 import SiteHeader from '@/components/site-header'
+
+import LoginVerifiedToast from './login-verified-toast'
 
 export default function Page() {
 	return (
@@ -12,6 +16,9 @@ export default function Page() {
 
 			<div className='mx-auto flex min-h-screen w-full max-w-6xl flex-col px-6 py-10 sm:px-10 lg:px-12'>
 				<SiteHeader variant='auth' />
+				<Suspense fallback={null}>
+					<LoginVerifiedToast />
+				</Suspense>
 
 				<PageMainTransition className='flex flex-1 items-center justify-center py-12 lg:py-16'>
 					<LoginForm />
