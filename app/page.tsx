@@ -1,6 +1,7 @@
-import Link from 'next/link'
 import PageMainTransition from './components/page-main-transition'
+import SiteHeader from './components/site-header'
 import SmoothScrollLink from './components/smooth-scroll-link'
+import Link from 'next/link'
 
 const steps = [
 	{
@@ -71,49 +72,7 @@ export default function Home() {
 			/>
 
 			<div className='relative mx-auto flex min-h-screen w-full max-w-7xl flex-col px-6 pb-20 pt-10 sm:px-10 lg:px-12'>
-				<header className='flex items-center justify-between gap-4 py-4'>
-					<Link href='/' className='flex items-center gap-3'>
-						<div className='flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-sm font-semibold tracking-[0.25em] text-sky-300 shadow-[0_0_30px_rgba(56,189,248,0.18)]'>
-							RG
-						</div>
-						<div>
-							<p className='text-sm font-medium uppercase tracking-[0.3em] text-slate-400'>
-								Rigify
-							</p>
-							<p className='text-sm text-slate-500'>PC build intelligence</p>
-						</div>
-					</Link>
-
-					<div className='flex items-center gap-3 sm:gap-4'>
-						<nav aria-label='Primary' className='hidden items-center gap-8 md:flex'>
-							<SmoothScrollLink
-								href='#how-it-works'
-								className='text-sm text-slate-300 transition hover:text-white'
-							>
-								How it works
-							</SmoothScrollLink>
-							<SmoothScrollLink
-								href='#features'
-								className='text-sm text-slate-300 transition hover:text-white'
-							>
-								Features
-							</SmoothScrollLink>
-							<SmoothScrollLink
-								href='#trust'
-								className='text-sm text-slate-300 transition hover:text-white'
-							>
-								Why Rigify
-							</SmoothScrollLink>
-						</nav>
-
-						<Link
-							href='/login'
-							className='inline-flex min-h-11 items-center justify-center rounded-full border border-white/15 bg-white/5 px-5 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
-						>
-							Login
-						</Link>
-					</div>
-				</header>
+				<SiteHeader variant='marketing' />
 
 				<PageMainTransition className='flex flex-1 flex-col'>
 					<section className='relative grid flex-1 items-center gap-16 py-16 lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)] lg:py-20'>

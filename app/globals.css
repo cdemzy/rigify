@@ -29,3 +29,52 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 48px;
 }
+
+@keyframes cta-glow-drift {
+  0% {
+    transform: translateX(-24%) translateY(-8%) scale(1);
+    opacity: 0.72;
+  }
+
+  50% {
+    transform: translateX(20%) translateY(10%) scale(1.12);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-24%) translateY(-8%) scale(1);
+    opacity: 0.72;
+  }
+}
+
+.cta-glow {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.cta-glow::before {
+  content: '';
+  position: absolute;
+  inset: -35%;
+  z-index: 0;
+  border-radius: 9999px;
+  background:
+    radial-gradient(circle at 25% 50%, rgba(125, 211, 252, 0.95), transparent 32%),
+    radial-gradient(circle at 70% 45%, rgba(59, 130, 246, 0.92), transparent 34%),
+    radial-gradient(circle at 50% 75%, rgba(45, 212, 191, 0.7), transparent 38%);
+  filter: blur(28px);
+  animation: cta-glow-drift 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.cta-glow > span {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-glow::before {
+    animation: none;
+  }
+}

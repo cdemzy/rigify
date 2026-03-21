@@ -1,5 +1,6 @@
-import Link from 'next/link'
 import PageMainTransition from '../components/page-main-transition'
+import SiteHeader from '../components/site-header'
+import Link from 'next/link'
 
 export default function LoginPage() {
 	return (
@@ -10,26 +11,7 @@ export default function LoginPage() {
 			/>
 
 			<div className='mx-auto flex min-h-screen w-full max-w-7xl flex-col px-6 py-10 sm:px-10 lg:px-12'>
-				<header className='flex items-center justify-between gap-4 py-4'>
-					<Link href='/' className='flex items-center gap-3'>
-						<div className='flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-sm font-semibold tracking-[0.25em] text-sky-300 shadow-[0_0_30px_rgba(56,189,248,0.18)]'>
-							RG
-						</div>
-						<div>
-							<p className='text-sm font-medium uppercase tracking-[0.3em] text-slate-400'>
-								Rigify
-							</p>
-							<p className='text-sm text-slate-500'>PC build intelligence</p>
-						</div>
-					</Link>
-
-					<Link
-						href='/'
-						className='inline-flex min-h-11 items-center justify-center rounded-full border border-white/15 bg-white/5 px-5 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
-					>
-						Back to home
-					</Link>
-				</header>
+				<SiteHeader variant='auth' />
 
 				<PageMainTransition className='flex flex-1 items-center py-12 lg:py-16'>
 					<div className='grid w-full items-center gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(360px,0.85fr)] lg:gap-14'>
