@@ -34,7 +34,7 @@ export default function Page() {
 				className='absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-sky-400/60 to-transparent'
 			/>
 
-			<div className='mx-auto flex min-h-screen w-full max-w-5xl flex-col px-6 py-10 sm:px-10 lg:px-12'>
+			<div className='mx-auto flex min-h-screen w-full max-w-5xl flex-col px-6 pb-10 pt-4 sm:px-10 sm:pb-10 lg:px-12'>
 				<SiteHeader variant='dashboard' />
 
 				<PageMainTransition className='flex flex-1 flex-col gap-8 py-8'>
@@ -47,25 +47,18 @@ export default function Page() {
 
 						<SmoothScrollLink
 							href='#recent-builds'
-							className='inline-flex min-h-14 whitespace-nowrap items-center justify-center rounded-full border border-white/15 bg-white/5 px-7 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
+							className='inline-flex min-h-10 whitespace-nowrap items-center justify-center rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
 						>
 							Recent Builds
 						</SmoothScrollLink>
 					</section>
 
-					<section className='mx-auto flex w-full max-w-6xl flex-col gap-6'>
+					<section id='build-form-and-history' className='mx-auto flex w-full max-w-6xl flex-col gap-10'>
 						<div className='w-full rounded-4xl border border-white/10 bg-slate-950/70 p-5 shadow-[0_30px_80px_rgba(2,6,23,0.4)] backdrop-blur sm:p-6'>
 							<div className='flex flex-col gap-4 border-b border-white/10 pb-6 sm:flex-row sm:items-end sm:justify-between'>
 								<div>
 									<p className='text-xs uppercase tracking-[0.28em] text-slate-500'>
 										New build form
-									</p>
-									<h2 className='mt-3 text-2xl font-semibold text-white'>
-										Start a fresh evaluation
-									</h2>
-									<p className='mt-3 max-w-2xl text-sm leading-6 text-slate-300'>
-										Enter the core specs you want Rigify to evaluate. This is UI-only
-										for now, but it mirrors the shape of the real flow.
 									</p>
 								</div>
 							</div>
