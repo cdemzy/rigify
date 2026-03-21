@@ -3,6 +3,14 @@
 import { useState } from 'react'
 
 const storageOptions = ['HDD', 'SSD', 'M.2'] as const
+const storageSizeOptions = [
+	'250GB',
+	'500GB',
+	'1000GB',
+	'2000GB',
+	'4000GB',
+	'8000GB',
+] as const
 const m2GenerationOptions = [
 	'Gen 1',
 	'Gen 2',
@@ -53,13 +61,18 @@ export default function StorageFields() {
 					>
 						Size
 					</label>
-					<input
+					<select
 						id='storage-size'
 						name='storageSize'
-						type='text'
-						placeholder='2TB'
-						className='mt-1.5 block w-full rounded-2xl border border-white/10 bg-white/4 px-4 py-2.5 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
-					/>
+						defaultValue='1000GB'
+						className='mt-1.5 block w-full rounded-2xl border border-white/10 bg-slate-950 px-4 py-2.5 text-sm text-white outline-none transition focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
+					>
+						{storageSizeOptions.map((option) => (
+							<option key={option} value={option}>
+								{option}
+							</option>
+						))}
+					</select>
 				</div>
 
 				{isM2 ? (
