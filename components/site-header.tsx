@@ -31,11 +31,11 @@ function BrandMark({
 	)
 
 	if (!isLink) {
-		return <div className='flex items-center gap-3'>{content}</div>
+		return <div className='flex select-none items-center gap-3'>{content}</div>
 	}
 
 	return (
-		<Link href='/' className='flex items-center gap-3'>
+		<Link href='/' className='flex select-none items-center gap-3'>
 			{content}
 		</Link>
 	)
