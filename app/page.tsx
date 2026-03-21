@@ -71,7 +71,7 @@ export default function Home() {
 				className='absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-sky-400/60 to-transparent'
 			/>
 
-			<div className='relative mx-auto flex min-h-screen w-full max-w-7xl flex-col px-6 pb-20 pt-10 sm:px-10 lg:px-12'>
+			<div className='relative mx-auto flex min-h-screen w-full max-w-6xl flex-col px-6 pb-20 pt-10 sm:px-10 lg:px-12'>
 				<SiteHeader variant='marketing' />
 
 				<PageMainTransition className='flex flex-1 flex-col'>
@@ -221,7 +221,7 @@ export default function Home() {
 
 					<section
 						id='how-it-works'
-						className='mx-auto w-full max-w-7xl scroll-mt-20 px-6 py-20 sm:px-10 lg:px-12'
+						className='mx-auto w-full max-w-6xl scroll-mt-20 px-6 py-20 sm:px-10 lg:px-12'
 					>
 						<div className='max-w-2xl'>
 							<p className='text-sm font-semibold uppercase tracking-[0.3em] text-sky-300'>
@@ -256,7 +256,7 @@ export default function Home() {
 
 					<section
 						id='features'
-						className='mx-auto w-full max-w-7xl scroll-mt-20 px-6 py-20 sm:px-10 lg:px-12'
+						className='mx-auto w-full max-w-6xl scroll-mt-20 px-6 py-20 sm:px-10 lg:px-12'
 					>
 						<div className='grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start'>
 							<div className='max-w-xl'>
@@ -291,7 +291,7 @@ export default function Home() {
 
 					<section
 						id='trust'
-						className='mx-auto w-full max-w-7xl scroll-mt-20 px-6 py-20 sm:px-10 lg:px-12'
+						className='mx-auto w-full max-w-6xl scroll-mt-20 px-6 py-20 sm:px-10 lg:px-12'
 					>
 						<div className='rounded-4xl border border-white/10 bg-white/4 p-8 backdrop-blur sm:p-10'>
 							<div className='grid gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-center'>
@@ -325,7 +325,7 @@ export default function Home() {
 
 					<section
 						id='final-cta'
-						className='mx-auto w-full max-w-7xl scroll-mt-20 px-6 pb-24 pt-10 sm:px-10 lg:px-12'
+						className='mx-auto w-full max-w-6xl scroll-mt-20 px-6 pb-24 pt-10 sm:px-10 lg:px-12'
 					>
 						<div className='rounded-4xl border border-sky-300/20 bg-linear-to-br from-sky-400/12 via-slate-950/90 to-blue-500/12 p-8 shadow-[0_24px_80px_rgba(14,165,233,0.12)] sm:p-10 lg:p-12'>
 							<div className='flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between'>

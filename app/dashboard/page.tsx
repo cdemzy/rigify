@@ -33,7 +33,7 @@ export default function Page() {
 				className='absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-sky-400/60 to-transparent'
 			/>
 
-			<div className='mx-auto flex min-h-screen w-full max-w-7xl flex-col px-6 py-10 sm:px-10 lg:px-12'>
+			<div className='mx-auto flex min-h-screen w-full max-w-5xl flex-col px-6 py-10 sm:px-10 lg:px-12'>
 				<SiteHeader variant='dashboard' />
 
 				<PageMainTransition className='flex flex-1 flex-col gap-8 py-8'>
@@ -67,11 +67,10 @@ export default function Page() {
 										for now, but it mirrors the shape of the real flow.
 									</p>
 								</div>
-								<p className='text-sm text-slate-400'>Draft mode</p>
 							</div>
 
-							<form className='mt-6 space-y-5'>
-								<div className='grid gap-5 md:grid-cols-2'>
+							<form className='mt-5 space-y-4'>
+								<div className='grid gap-4 lg:grid-cols-3'>
 									<div className='max-w-md'>
 										<label htmlFor='cpu' className='block text-sm font-medium text-slate-200'>
 											CPU
@@ -81,7 +80,7 @@ export default function Page() {
 											name='cpu'
 											type='text'
 											placeholder='Ryzen 7 9700X'
-											className='mt-2 block w-full rounded-2xl border border-white/10 bg-white/4 px-4 py-3 text-base text-white outline-none transition placeholder:text-slate-500 focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
+											className='mt-1.5 block w-full rounded-2xl border border-white/10 bg-white/4 px-4 py-2.5 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
 										/>
 									</div>
 
@@ -94,13 +93,26 @@ export default function Page() {
 											name='gpu'
 											type='text'
 											placeholder='RTX 5070'
-											className='mt-2 block w-full rounded-2xl border border-white/10 bg-white/4 px-4 py-3 text-base text-white outline-none transition placeholder:text-slate-500 focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
+											className='mt-1.5 block w-full rounded-2xl border border-white/10 bg-white/4 px-4 py-2.5 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
 										/>
 									</div>
 
-									<fieldset className='max-w-3xl rounded-3xl border border-white/10 bg-white/3 p-4 md:col-span-2'>
+									<div className='max-w-md'>
+										<label htmlFor='psu' className='block text-sm font-medium text-slate-200'>
+											PSU
+										</label>
+										<input
+											id='psu'
+											name='psu'
+											type='text'
+											placeholder='850W 80+ Gold'
+											className='mt-1.5 block w-full rounded-2xl border border-white/10 bg-white/4 px-4 py-2.5 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
+										/>
+									</div>
+
+									<fieldset className='w-full rounded-3xl border border-white/10 bg-white/3 p-3.5 lg:col-span-3 xl:col-span-2'>
 										<legend className='px-2 text-sm font-medium text-slate-200'>RAM</legend>
-										<div className='mt-3 grid gap-4 sm:grid-cols-2'>
+										<div className='mt-2.5 grid gap-3 sm:grid-cols-2'>
 											<div>
 												<label
 													htmlFor='ram-capacity'
@@ -113,7 +125,7 @@ export default function Page() {
 													name='ramCapacity'
 													type='text'
 													placeholder='32GB'
-													className='mt-2 block w-full rounded-2xl border border-white/10 bg-white/4 px-4 py-3 text-base text-white outline-none transition placeholder:text-slate-500 focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
+													className='mt-1.5 block w-full rounded-2xl border border-white/10 bg-white/4 px-4 py-2.5 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
 												/>
 											</div>
 											<div>
@@ -128,28 +140,15 @@ export default function Page() {
 													name='ramGeneration'
 													type='text'
 													placeholder='DDR5'
-													className='mt-2 block w-full rounded-2xl border border-white/10 bg-white/4 px-4 py-3 text-base text-white outline-none transition placeholder:text-slate-500 focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
+													className='mt-1.5 block w-full rounded-2xl border border-white/10 bg-white/4 px-4 py-2.5 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
 												/>
 											</div>
 										</div>
 									</fieldset>
 
-									<div className='max-w-md'>
-										<label htmlFor='psu' className='block text-sm font-medium text-slate-200'>
-											PSU
-										</label>
-										<input
-											id='psu'
-											name='psu'
-											type='text'
-											placeholder='850W 80+ Gold'
-											className='mt-2 block w-full rounded-2xl border border-white/10 bg-white/4 px-4 py-3 text-base text-white outline-none transition placeholder:text-slate-500 focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
-										/>
-									</div>
-
-									<fieldset className='max-w-3xl rounded-3xl border border-white/10 bg-white/3 p-4 md:col-span-2'>
+									<fieldset className='w-full rounded-3xl border border-white/10 bg-white/3 p-3.5 lg:col-span-3 xl:col-span-1'>
 										<legend className='px-2 text-sm font-medium text-slate-200'>Display</legend>
-										<div className='mt-3 grid gap-4 sm:grid-cols-2'>
+										<div className='mt-2.5 grid gap-3 sm:grid-cols-2'>
 											<div>
 												<label
 													htmlFor='monitor-resolution'
@@ -162,7 +161,7 @@ export default function Page() {
 													name='monitorResolution'
 													type='text'
 													placeholder='1440p'
-													className='mt-2 block w-full rounded-2xl border border-white/10 bg-white/4 px-4 py-3 text-base text-white outline-none transition placeholder:text-slate-500 focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
+													className='mt-1.5 block w-full rounded-2xl border border-white/10 bg-white/4 px-4 py-2.5 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
 												/>
 											</div>
 											<div>
@@ -177,7 +176,7 @@ export default function Page() {
 													name='monitorRefreshRate'
 													type='text'
 													placeholder='165Hz'
-													className='mt-2 block w-full rounded-2xl border border-white/10 bg-white/4 px-4 py-3 text-base text-white outline-none transition placeholder:text-slate-500 focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
+													className='mt-1.5 block w-full rounded-2xl border border-white/10 bg-white/4 px-4 py-2.5 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
 												/>
 											</div>
 										</div>
@@ -185,7 +184,7 @@ export default function Page() {
 
 									<StorageFields />
 
-									<div className='max-w-xl md:col-span-2'>
+									<div className='max-w-xl lg:col-span-3'>
 										<label htmlFor='games' className='block text-sm font-medium text-slate-200'>
 											Selected games
 										</label>
@@ -194,12 +193,12 @@ export default function Page() {
 											name='games'
 											type='text'
 											placeholder='Warzone, Fortnite, Cyberpunk 2077'
-											className='mt-2 block w-full rounded-2xl border border-white/10 bg-white/4 px-4 py-3 text-base text-white outline-none transition placeholder:text-slate-500 focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
+											className='mt-1.5 block w-full rounded-2xl border border-white/10 bg-white/4 px-4 py-2.5 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
 										/>
 									</div>
 								</div>
 
-								<div className='rounded-3xl border border-white/10 bg-white/3 p-4'>
+								<div className='rounded-3xl border border-white/10 bg-white/3 p-3.5'>
 									<p className='text-sm leading-6 text-slate-300'>
 										Your next evaluation will estimate compatibility, PSU guidance,
 										bottleneck risk, and likely FPS performance based on the build you
@@ -209,7 +208,7 @@ export default function Page() {
 
 								<button
 									type='submit'
-									className='cta-glow inline-flex min-h-12 w-full items-center justify-center rounded-full border border-sky-300/40 bg-slate-950 px-6 text-sm font-semibold text-white shadow-[0_18px_60px_rgba(14,165,233,0.28)] transition hover:border-sky-200/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300'
+									className='cta-glow inline-flex min-h-11 w-full items-center justify-center rounded-full border border-sky-300/40 bg-slate-950 px-6 text-sm font-semibold text-white shadow-[0_18px_60px_rgba(14,165,233,0.28)] transition hover:border-sky-200/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300'
 								>
 									<span>Evaluate</span>
 								</button>

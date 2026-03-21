@@ -10,7 +10,7 @@ export default function Page() {
 				className='absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-sky-400/60 to-transparent'
 			/>
 
-			<div className='mx-auto flex min-h-screen w-full max-w-7xl flex-col px-6 py-10 sm:px-10 lg:px-12'>
+			<div className='mx-auto flex min-h-screen w-full max-w-6xl flex-col px-6 py-10 sm:px-10 lg:px-12'>
 				<SiteHeader variant='auth' />
 
 				<PageMainTransition className='flex flex-1 items-center justify-center py-12 lg:py-16'>

@@ -14,24 +14,19 @@ const baseActionClassName =
 
 function BrandMark({
 	isLink = true,
-	isMinimal = false,
 }: {
 	isLink?: boolean
-	isMinimal?: boolean
 }) {
 	const content = (
 		<>
 			<div className='flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-sm font-semibold tracking-[0.25em] text-sky-300 shadow-[0_0_30px_rgba(56,189,248,0.18)]'>
 				RG
 			</div>
-			{isMinimal ? null : (
-				<div>
-					<p className='text-sm font-medium uppercase tracking-[0.3em] text-slate-400'>
-						Rigify
-					</p>
-					<p className='text-sm text-slate-500'>PC build intelligence</p>
-				</div>
-			)}
+			<div>
+				<p className='text-sm font-medium uppercase tracking-[0.3em] text-slate-400'>
+					Rigify
+				</p>
+			</div>
 		</>
 	)
 
@@ -97,10 +92,7 @@ function HeaderAction({ variant }: SiteHeaderProps) {
 export default function SiteHeader({ variant }: SiteHeaderProps) {
 	return (
 		<header className='flex items-center justify-between gap-4 py-4'>
-			<BrandMark
-				isLink={variant !== 'dashboard'}
-				isMinimal={variant === 'dashboard'}
-			/>
+			<BrandMark isLink={variant !== 'dashboard'} />
 			<HeaderAction variant={variant} />
 		</header>
 	)

@@ -19,9 +19,9 @@ export default function StorageFields() {
 	const isM2 = storageType === 'M.2'
 
 	return (
-		<fieldset className='rounded-3xl border border-white/10 bg-white/3 p-4 md:col-span-2'>
+		<fieldset className='w-full rounded-3xl border border-white/10 bg-white/3 p-3.5 md:col-span-3'>
 			<legend className='px-2 text-sm font-medium text-slate-200'>Storage</legend>
-			<div className='mt-3 grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
+			<div className='mt-2.5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3'>
 				<div>
 					<label
 						htmlFor='storage-type'
@@ -36,7 +36,7 @@ export default function StorageFields() {
 						onChange={(event) =>
 							setStorageType(event.target.value as (typeof storageOptions)[number])
 						}
-						className='mt-2 block w-full rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-base text-white outline-none transition focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
+						className='mt-1.5 block w-full rounded-2xl border border-white/10 bg-slate-950 px-4 py-2.5 text-sm text-white outline-none transition focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
 					>
 						{storageOptions.map((option) => (
 							<option key={option} value={option}>
@@ -58,7 +58,7 @@ export default function StorageFields() {
 						name='storageSize'
 						type='text'
 						placeholder='2TB'
-						className='mt-2 block w-full rounded-2xl border border-white/10 bg-white/4 px-4 py-3 text-base text-white outline-none transition placeholder:text-slate-500 focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
+						className='mt-1.5 block w-full rounded-2xl border border-white/10 bg-white/4 px-4 py-2.5 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
 					/>
 				</div>
 
@@ -74,7 +74,7 @@ export default function StorageFields() {
 							id='storage-gen'
 							name='storageGen'
 							defaultValue='Gen 4'
-							className='mt-2 block w-full rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-base text-white outline-none transition focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
+							className='mt-1.5 block w-full rounded-2xl border border-white/10 bg-slate-950 px-4 py-2.5 text-sm text-white outline-none transition focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
 						>
 							{m2GenerationOptions.map((option) => (
 								<option key={option} value={option}>
