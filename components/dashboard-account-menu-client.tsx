@@ -34,14 +34,14 @@ export default function DashboardAccountMenuClient() {
 				align='end'
 				className='w-72 rounded-3xl border border-white/10 bg-slate-950/95 p-2 text-white shadow-[0_24px_80px_rgba(2,6,23,0.5)] backdrop-blur'
 			>
-				<DropdownMenuItem
+				{/* <DropdownMenuItem
 					className='rounded-2xl px-4 py-3 text-sm font-medium text-white focus:bg-white/10 focus:text-white'
 				>
 					<Settings className='h-4 w-4 text-sky-300' />
 					Account settings
 				</DropdownMenuItem>
 
-				<DropdownMenuSeparator className='my-2 bg-white/10' />
+				<DropdownMenuSeparator className='my-2 bg-white/10' /> */}
 
 				<DropdownMenuItem
 					onSelect={(event) => {
