@@ -23,7 +23,7 @@ export function LoginForm() {
 	const showEmailError = hasEmailValue && !isEmailValid
 
 	const inputBaseClassName =
-		'mt-2 block w-full rounded-xl border px-4 py-3 text-base text-white outline-none transition placeholder:text-slate-500'
+		'mt-2 block w-full rounded-xl border px-4 py-2.5 text-sm text-white outline-none transition placeholder:text-slate-500'
 
 	const validInputClassName =
 		'border-white/12 bg-white/3 focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30'
@@ -59,16 +59,16 @@ export function LoginForm() {
 	}
 
 	return (
-		<div className='relative w-full max-w-md'>
+		<div className='relative w-full max-w-sm'>
 			<div className='absolute inset-0 -z-10 rounded-4xl bg-sky-400/10 blur-3xl' />
-			<div className='rounded-4xl border border-white/10 bg-slate-950/70 p-6 shadow-[0_30px_80px_rgba(2,6,23,0.5)] backdrop-blur sm:p-8'>
-				<h1 className='text-4xl font-semibold tracking-[-0.04em] text-white'>
+			<div className='rounded-4xl border border-white/10 bg-slate-950/70 p-5 shadow-[0_30px_80px_rgba(2,6,23,0.5)] backdrop-blur sm:p-6'>
+				<h1 className='text-3xl font-semibold tracking-[-0.04em] text-white sm:text-[2rem]'>
 					Welcome back
 				</h1>
-				<p className='mt-2 text-base text-slate-300'>
+				<p className='mt-2 text-sm text-slate-300 sm:text-[0.95rem]'>
 					Log in to continue your build flow
 				</p>
-				<form onSubmit={handleLogin} className='mt-8 space-y-5'>
+				<form onSubmit={handleLogin} className='mt-6 space-y-4.5'>
 					<div>
 						<label
 							htmlFor={emailId}
@@ -126,7 +126,7 @@ export function LoginForm() {
 								type='button'
 								onClick={() => setShowPassword((currentValue) => !currentValue)}
 								aria-label={showPassword ? 'Hide password' : 'Show password'}
-								className='absolute inset-y-2 right-2 inline-flex w-10 items-center justify-center rounded-lg border border-white/10 bg-white/4 text-slate-400 transition hover:bg-white/8 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300'
+								className='absolute inset-y-2 right-2 inline-flex w-9 items-center justify-center rounded-lg border border-white/10 bg-white/4 text-slate-400 transition hover:bg-white/8 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300'
 							>
 								<svg
 									aria-hidden='true'
@@ -152,7 +152,7 @@ export function LoginForm() {
 					<button
 						type='submit'
 						disabled={isLoading}
-						className='inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-sky-400 px-6 text-base font-semibold text-slate-950 transition hover:bg-sky-300 disabled:cursor-not-allowed disabled:bg-sky-300/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300'
+						className='inline-flex min-h-11 w-full items-center justify-center rounded-xl bg-sky-400 px-6 text-sm font-semibold text-slate-950 transition hover:bg-sky-300 disabled:cursor-not-allowed disabled:bg-sky-300/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300'
 					>
 						{isLoading ? 'Logging in...' : 'Log in'}
 					</button>
