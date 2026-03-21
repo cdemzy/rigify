@@ -136,7 +136,7 @@ export default function BuildResultsView({ build }: { build: BuildRecord }) {
 
 				<div className='flex flex-col gap-3 sm:items-end'>
 					<Link
-						href='/dashboard?section=recent-builds'
+						href='/dashboard?section=saved-builds'
 						className='inline-flex min-h-11 items-center justify-center rounded-full border border-white/15 bg-white/5 px-5 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
 					>
 						Recent Builds
