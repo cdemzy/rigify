@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
-import PageMainTransition from './components/page-main-transition'
-import SiteHeader from './components/site-header'
+import PageMainTransition from '@/components/page-main-transition'
+import SiteHeader from '@/components/site-header'
 
 const headings = [
 	'Well, this is awkward.',
@@ -79,7 +79,7 @@ export default function NotFound() {
 								Return Home
 							</Link>
 							<Link
-								href='/login'
+								href='/auth/login'
 								className='inline-flex min-h-14 min-w-44 items-center justify-center rounded-full border border-white/15 bg-white/5 px-7 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
 							>
 								Go to Login

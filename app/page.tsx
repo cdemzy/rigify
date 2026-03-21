@@ -1,6 +1,6 @@
-import PageMainTransition from './components/page-main-transition'
-import SiteHeader from './components/site-header'
-import SmoothScrollLink from './components/smooth-scroll-link'
+import PageMainTransition from '@/components/page-main-transition'
+import SiteHeader from '@/components/site-header'
+import SmoothScrollLink from '@/components/smooth-scroll-link'
 import Link from 'next/link'
 
 const steps = [
@@ -91,7 +91,7 @@ export default function Home() {
 
 							<div className='mt-10 flex flex-col gap-4 sm:flex-row'>
 								<Link
-									href='/login'
+									href='/auth/login'
 									className='inline-flex min-h-14 whitespace-nowrap items-center justify-center rounded-full bg-sky-400 px-7 text-sm font-semibold text-slate-950 transition hover:bg-sky-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300'
 								>
 									Build My Setup
@@ -344,7 +344,7 @@ export default function Home() {
 
 								<div className='flex flex-col gap-4 sm:flex-row'>
 									<Link
-										href='/login'
+										href='/auth/login'
 										className='inline-flex min-h-14 whitespace-nowrap items-center justify-center rounded-full bg-sky-400 px-7 text-sm font-semibold text-slate-950 transition hover:bg-sky-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300'
 									>
 										Build My Setup
