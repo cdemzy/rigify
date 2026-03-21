@@ -36,7 +36,7 @@ export default function SelectedGamesFields() {
 	}
 
 	return (
-		<fieldset className='w-full rounded-3xl border border-white/10 bg-white/3 p-3.5 lg:col-span-3'>
+		<fieldset className='w-full rounded-3xl border border-white/10 bg-white/3 p-3.5 md:col-span-3'>
 			<legend className='px-2 text-sm font-medium text-slate-200'>
 				Selected games
 			</legend>

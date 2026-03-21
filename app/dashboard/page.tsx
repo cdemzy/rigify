@@ -65,7 +65,7 @@ export default function Page() {
 							</div>
 
 							<form className='mt-5 space-y-4'>
-								<div className='grid gap-4 sm:grid-cols-2 xl:grid-cols-3'>
+								<div className='grid gap-4 md:grid-cols-3'>
 									<div className='w-full'>
 										<label htmlFor='cpu' className='block text-sm font-medium text-slate-200'>
 											CPU
@@ -105,7 +105,7 @@ export default function Page() {
 										/>
 									</div>
 
-									<fieldset className='w-full rounded-3xl border border-white/10 bg-white/3 p-3.5 sm:col-span-2 xl:col-span-2'>
+									<fieldset className='w-full rounded-3xl border border-white/10 bg-white/3 p-3.5 md:col-span-2'>
 										<legend className='px-2 text-sm font-medium text-slate-200'>RAM</legend>
 										<div className='mt-2.5 grid gap-3 sm:grid-cols-2'>
 											<div>
@@ -141,7 +141,7 @@ export default function Page() {
 										</div>
 									</fieldset>
 
-									<fieldset className='w-full rounded-3xl border border-white/10 bg-white/3 p-3.5 sm:col-span-2 xl:col-span-1'>
+									<fieldset className='w-full rounded-3xl border border-white/10 bg-white/3 p-3.5 md:col-span-1'>
 										<legend className='px-2 text-sm font-medium text-slate-200'>Display</legend>
 										<div className='mt-2.5 grid gap-3 sm:grid-cols-2'>
 											<div>
@@ -203,10 +203,6 @@ export default function Page() {
 								<h2 className='mt-3 text-2xl font-semibold text-white'>
 									Recent build history
 								</h2>
-								<p className='mt-3 text-sm leading-6 text-slate-300'>
-									Jump back into your latest drafts, comparisons, and reviewed builds
-									without losing focus on the form.
-								</p>
 							</div>
 
 							<div className='mt-6 grid gap-4 xl:grid-cols-2'>

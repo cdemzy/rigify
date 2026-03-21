@@ -21,7 +21,7 @@ export default function StorageFields() {
 	return (
 		<fieldset className='w-full rounded-3xl border border-white/10 bg-white/3 p-3.5 md:col-span-3'>
 			<legend className='px-2 text-sm font-medium text-slate-200'>Storage</legend>
-			<div className='mt-2.5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3'>
+			<div className='mt-2.5 grid gap-3 md:grid-cols-3'>
 				<div>
 					<label
 						htmlFor='storage-type'
