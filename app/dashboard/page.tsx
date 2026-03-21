@@ -1,6 +1,7 @@
-import PageMainTransition from '../components/page-main-transition'
-import SiteHeader from '../components/site-header'
-import SmoothScrollLink from '../components/smooth-scroll-link'
+import PageMainTransition from '@/components/page-main-transition'
+import SiteHeader from '@/components/site-header'
+import SmoothScrollLink from '@/components/smooth-scroll-link'
+
 import StorageFields from './storage-fields'
 
 const historyItems = [
@@ -24,7 +25,7 @@ const historyItems = [
 	},
 ]
 
-export default function DashboardPage() {
+export default function Page() {
 	return (
 		<div className='relative isolate min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,rgba(56,189,248,0.16),transparent_34%),radial-gradient(circle_at_82%_18%,rgba(59,130,246,0.14),transparent_28%),linear-gradient(180deg,#050816_0%,#090d1c_40%,#04060d_100%)] text-white'>
 			<div
@@ -58,7 +59,9 @@ export default function DashboardPage() {
 									<p className='text-xs uppercase tracking-[0.28em] text-slate-500'>
 										New build form
 									</p>
-									<h2 className='mt-3 text-2xl font-semibold text-white'>Start a fresh evaluation</h2>
+									<h2 className='mt-3 text-2xl font-semibold text-white'>
+										Start a fresh evaluation
+									</h2>
 									<p className='mt-3 max-w-2xl text-sm leading-6 text-slate-300'>
 										Enter the core specs you want Rigify to evaluate. This is UI-only
 										for now, but it mirrors the shape of the real flow.

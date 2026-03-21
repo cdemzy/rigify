@@ -177,7 +177,7 @@ export function SignUpForm() {
 					data: {
 						username,
 					},
-					emailRedirectTo: `${window.location.origin}/protected`,
+					emailRedirectTo: `${window.location.origin}/dashboard`,
 				},
 			})
 
