@@ -143,7 +143,7 @@ export default function Home() {
 
 						<div className='relative flex h-full lg:justify-end'>
 							<div className='absolute inset-0 -z-10 rounded-4xl bg-sky-400/10 blur-3xl' />
-							<div className='flex h-full w-full max-w-[30rem] flex-col rounded-4xl border border-white/10 bg-slate-950/70 p-4.5 shadow-[0_30px_80px_rgba(2,6,23,0.55)] backdrop-blur xl:p-5'>
+							<div className='flex h-full w-full max-w-120 flex-col rounded-4xl border border-white/10 bg-slate-950/70 p-4.5 shadow-[0_30px_80px_rgba(2,6,23,0.55)] backdrop-blur xl:p-5'>
 								<div className='flex flex-col gap-4 border-b border-white/10 pb-4 sm:flex-row sm:items-center sm:justify-between'>
 									<div>
 										<p className='text-xs uppercase tracking-[0.28em] text-slate-500'>
